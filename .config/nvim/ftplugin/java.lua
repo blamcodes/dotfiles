@@ -72,7 +72,7 @@ local config = {
 		"-jar", launcher_jar,
 		"-configuration", vim.fs.normalize(jdtls_path .. "/" .. get_config_dir()),
 		"-data",
-		"C:/Users/Bryan/code/java/workspaces/" .. workspace_dir,
+		vim.fs.normalize(global.home_path .. "/code/java/workspaces/" .. workspace_dir),
 	},
 
     root_dir = vim.fs.dirname(vim.fs.find(root_markers, { upward = true })[1]),
@@ -108,7 +108,7 @@ local bundles = {
 	),
 }
 
-vim.list_extend(bundles, vim.split(vim.fn.glob("C:/Users/Bryan/vscode-java-test/server/*.jar", 1), "\n"))
+vim.list_extend(bundles, vim.split(vim.fn.glob(global.home_path .. "/vscode-java-test/server/*.jar", 1), "\n"))
 config["init_options"] = {
 	bundles = bundles,
 }
