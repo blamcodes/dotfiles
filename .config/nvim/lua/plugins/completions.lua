@@ -1,4 +1,12 @@
 return {
+    --- Auto bracket closing
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function ()
+            require("nvim-autopairs").setup({})
+        end
+    },
 	{
 		"gelguy/wilder.nvim",
 		config = function()
