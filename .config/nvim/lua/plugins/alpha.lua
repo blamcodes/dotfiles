@@ -1,5 +1,3 @@
-local global = require("global")
-
 return {
     "goolord/alpha-nvim",
     dependencies = {
@@ -7,6 +5,8 @@ return {
     },
 
     config = function()
+        package.path = package.path .. ";../../../?.lua"
+        local global = require 'global'
         local alpha = require("alpha")
         local dashboard = require("alpha.themes.dashboard")
         dashboard.section.header.val = {
