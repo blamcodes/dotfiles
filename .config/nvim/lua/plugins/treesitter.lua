@@ -13,7 +13,7 @@ return {
                 },
                 --]]
             },
-            indent = { enable = true },
+            indent = { enable = false },
             --ignore_install = { "markdown" }
         })
     end
