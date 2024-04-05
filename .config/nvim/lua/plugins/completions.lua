@@ -71,7 +71,7 @@ return {
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({
-						behavior = cmp.ConfirmBehavior.Replade,
+						behavior = cmp.ConfirmBehavior.Replace,
 						select = true,
 					}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
                     ['<Tab>'] = cmp.mapping(function(fallback)
