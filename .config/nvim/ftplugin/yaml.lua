@@ -19,8 +19,6 @@ vim.api.nvim_buf_set_keymap(0, "n", "zk", ':lua NavigateFold("k")<CR>', { norema
 local lspconfig = require('lspconfig')
 
 
-
-
 -- LSP Configuration
 lspconfig.yamlls.setup {
   capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
