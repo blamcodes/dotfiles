@@ -13,5 +13,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require("vim-options")
 require("global")
-require("lazy").setup("plugins")
+
+-- Pass in Lua Plugin Modules
+require("lazy").setup( {
+    { import = "plugins" },
+    { import = "plugins.lsp" },
+})
+
 

@@ -5,6 +5,7 @@ return {
 			"rcarriga/nvim-dap-ui",
 			"leoluz/nvim-dap-go",
 			"mfussenegger/nvim-jdtls",
+			"mfussenegger/nvim-dap-python",
             "nvim-neotest/nvim-nio",
 		},
 		config = function()
@@ -12,8 +13,7 @@ return {
 			local dapui = require("dapui")
 
 			require("dapui").setup()
-			require("dap-go").setup()
-			require("dap").adapters.go.executable.detached = false
+            require("dap-python").setup("python")
 
 			-- Dapui
 			dap.listeners.before.attach.dapui_config = function()
