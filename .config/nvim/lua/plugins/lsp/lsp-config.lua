@@ -8,7 +8,6 @@ return {
 					"lua_ls",
 					"ts_ls",
                     "jsonls",
-					"jedi_language_server",
                     "helm_ls",
                     "yamlls",
                     "phpactor",
@@ -30,7 +29,10 @@ return {
 				capabilties = capabilities,
 			})
 
-			lspconfig.jedi_language_server.setup({
+			-- lspconfig.jedi_language_server.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			lspconfig.pyright.setup({
 				capabilities = capabilities,
 			})
 
@@ -41,35 +43,35 @@ return {
             lspconfig.phpactor.setup({
 				capabilities = capabilities,
             })
-
-            lspconfig.jinja_lsp.setup({
-				capabilities = capabilities,
-            })
-
-			lspconfig.helm_ls.setup({
-				capabilities = capabilities,
-                -- settings = {
-                --     logLevel = "info",
-                --     valuesFile = {
-                --         mainValuesFile = "values.yaml",
-                --         lintOverlayValuesFile = "values.line.yaml",
-                --         additionalValuesFileGlobPattern = "values*.yaml"
-                --     },
-                --     yamlls = {
-                --         enabled = false,
-                --         enabledForFilesGlob = "*.{yaml,yml}",
-                --         diagnosticLimit = 50,
-                --         path = "yaml-language-server",
-                --         config = {
-                --             schemas = {
-                --                 kubernetes = "templates/**",
-                --             },
-                --             completion = true,
-                --             hover = true,
-                --         }
-                --     }
-                -- }
-			})
+			--
+			--          lspconfig.jinja_lsp.setup({
+			-- 	capabilities = capabilities,
+			--          })
+			--
+			-- lspconfig.helm_ls.setup({
+			-- 	capabilities = capabilities,
+			--              -- settings = {
+			--              --     logLevel = "info",
+			--              --     valuesFile = {
+			--              --         mainValuesFile = "values.yaml",
+			--              --         lintOverlayValuesFile = "values.line.yaml",
+			--              --         additionalValuesFileGlobPattern = "values*.yaml"
+			--              --     },
+			--              --     yamlls = {
+			--              --         enabled = false,
+			--              --         enabledForFilesGlob = "*.{yaml,yml}",
+			--              --         diagnosticLimit = 50,
+			--              --         path = "yaml-language-server",
+			--              --         config = {
+			--              --             schemas = {
+			--              --                 kubernetes = "templates/**",
+			--              --             },
+			--              --             completion = true,
+			--              --             hover = true,
+			--              --         }
+			--              --     }
+			--              -- }
+			-- })
 
 			-- lspconfig.yamlls.setup({
 			-- 	capabilities = capabilities,
