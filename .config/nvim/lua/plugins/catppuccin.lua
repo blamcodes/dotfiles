@@ -1,23 +1,44 @@
 return {
-	"catppuccin/nvim",
-    dependencies = {
-        "xiyaowong/transparent.nvim",
-    },
-	name = "catppuccin",
-	priority = 1000,
-	config = function()
-		vim.cmd.colorscheme("catppuccin")
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = function()
+        local catppuccin = require("catppuccin")
 
-        require("transparent").setup({
-          groups = { -- table: default groups
-            'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
-            'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
-            'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
-            'SignColumn', 'CursorLine', 'CursorLineNr', 'StatusLine', 'StatusLineNC',
-            'EndOfBuffer',
-          },
-          extra_groups = {}, -- table: additional groups that should be cleared
-          exclude_groups = {}, -- table: groups you don't want to clear
+        catppuccin.setup({
+            flavour = "macchiato",
+            transparent_background = true,
+            -- integrations = {
+            --     telescope = {
+            --         enabled = true,
+            --         style = "nvchad"
+            --     }
+            -- }
         })
-	end,
+
+        local colors = require("catppuccin.palettes").get_palette()
+        local TelescopeColor = {
+            TelescopeMatching = { fg = colors.rosewater },
+            TelescopeSelection = { fg = colors.text, bg = colors.surface0, bold = true },
+
+            TelescopePromptPrefix = { bg = "NONE" },
+            TelescopePromptNormal = { bg = "NONE" },
+            TelescopeResultsNormal = { bg = "NONE" },
+            TelescopePreviewNormal = { bg = "NONE" },
+
+            TelescopePromptBorder = { bg = "NONE", fg = colors.mantle },
+            TelescopeResultsBorder = { bg = "NONE", fg = colors.mantle },
+            TelescopePreviewBorder = { bg = "NONE", fg = colors.mantle },
+
+            TelescopePromptTitle = { bg = colors.mauve, fg = colors.mantle },
+            TelescopeResultsTitle = { bg = colors.green, fg = colors.mantle },
+            TelescopePreviewTitle = { bg = colors.pink, fg = colors.mantle },
+        }
+
+        for hl, col in pairs(TelescopeColor) do
+            vim.api.nvim_set_hl(0, hl, col)
+        end
+
+        vim.cmd.colorscheme("catppuccin")
+    end,
 }
