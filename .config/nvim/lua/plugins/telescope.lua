@@ -1,6 +1,7 @@
 return {
     {
-        'nvim-telescope/telescope.nvim', tag = '0.1.5',
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.5',
         dependencies = { 'nvim-lua/plenary.nvim', 'dapc11/telescope-yaml.nvim' },
         config = function()
             vim.g.telescope = 'rg'
