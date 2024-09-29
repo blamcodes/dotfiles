@@ -102,7 +102,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
+
+# Go 
+export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$PATH:/opt/i3-4.23"
 
