@@ -55,6 +55,71 @@ return {
             local dap = require("dap")
             local dapui = require("dapui")
 
+
+            dap.adapters["pwa-node"] = {
+                type = "server",
+                host = "localhost",
+                port = 9229,
+                executable = {
+                    command = vim.fn.exepath "js-debug-adapter",
+                    args = { 9229 },
+                }
+            }
+
+
+            for _, language in ipairs { "typescript", "javascript" } do
+                dap.configurations[language] = {
+                    {
+                        type = "pwa-node",
+                        request = "attach",
+                        name = "Docker Node.js Launch",
+                        address = "localhost",
+                        port = 9229,
+                        skipfiles = {
+                            "<node_internals>/**"
+                        },
+                        remoteRoot = "/home/haledev/hale-framework",
+                        cwd = "${workspaceFolder}",
+                        sourceMaps = true,
+                        -- websocketAddress = "ws://127.0.0.1:9229/62479377-9b24-4eb6-a590-b15c5600b70",
+                        protocol = 'inspector',
+                        outFiles = { "${workspaceFolder}/build/framework/js/*.js" },
+                        sourceMapPathOverrides = {
+                            ["./*"] = "${workspaceFolder}"
+                        }
+
+                        -- function()
+                        --     return string.match(
+                        --         vim.api.nvim_exec('!docker logs [conatiner-name]|& grep -oE "ws.*" | tail -1', true),
+                        --         "ws:.*"
+                        --     )
+                        -- end,
+                    },
+                    {
+                        type = "pwa-node",
+                        request = "attach",
+                        name = "[node] Attach",
+                        processId = require("dap.utils").pick_process,
+                        cwd = "${workspaceFolder}",
+                    },
+                    {
+                        type = "pwa-node",
+                        request = "launch",
+                        name = "Debug Jest Tests",
+                        -- trace = true, -- include debugger info
+                        runtimeExecutable = "node",
+                        runtimeArgs = {
+                            "./node_modules/jest/bin/jest.js",
+                            "--runInBand",
+                        },
+                        rootPath = "${workspaceFolder}",
+                        cwd = "${workspaceFolder}",
+                        console = "integratedTerminal",
+                        internalConsoleOptions = "neverOpen",
+                    },
+                }
+            end
+
             require("dapui").setup()
             -- require("dap-python").setup("python")
 
