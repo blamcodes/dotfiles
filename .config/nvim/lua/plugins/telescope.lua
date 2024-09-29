@@ -4,15 +4,30 @@ return {
         tag = '0.1.5',
         dependencies = { 'nvim-lua/plenary.nvim', 'dapc11/telescope-yaml.nvim' },
         config = function()
-            vim.g.telescope = 'rg'
+            local telescope = require("telescope")
+
+            telescope.setup({
+                pickers = {
+                    find_files = {
+                        find_command = { "fd", "--type", "f", "--strip-cwd-prefix" }
+                    }
+                }
+            })
+
             local builtin = require("telescope.builtin")
-            vim.keymap.set('n', '<leader>p', builtin.find_files, {})
+
+            vim.keymap.set('n', '<leader>p', builtin.git_files, {})
             vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-            vim.keymap.set('n', '<leader>fs', function()
+            vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+            vim.keymap.set('n', '<leader>fs', builtin.grep_string, {})
+            vim.keymap.set('n', '<leader>fd', function()
                 builtin.lsp_document_symbols({
                     ignore_symbols = { 'variables' }
                 })
             end, {})
+
+            vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "NONE" })
+            vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "NONE" })
         end
     },
     {
