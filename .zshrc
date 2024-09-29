@@ -105,8 +105,17 @@ source $ZSH/oh-my-zsh.sh
 
 # Go 
 export PATH="$PATH:/usr/local/go/bin"
+
+# NVIM
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$PATH:/opt/i3-4.23"
+
+# FD (Better Find)
+# - Follow Symbolic Links and Include Hidden Files (but exclude .git folders) 
+export FZF_DEFAULT_COMMAND='fd --type file --color=always --follow --hidden --exclude .git'
+export FZF_DEFAULT_OPTS="--ansi"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
