@@ -103,12 +103,17 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export TERMINAL=kitty
+
 # Go 
 export PATH="$PATH:/usr/local/go/bin"
 
 # NVIM
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$PATH:/opt/i3-4.23"
+
+# PYWAL
+export PATH="$PATH:${HOME}/.local/bin/"
 
 # FD (Better Find)
 # - Follow Symbolic Links and Include Hidden Files (but exclude .git folders) 
@@ -138,6 +143,14 @@ eval "$(pyenv virtualenv-init -)"
 # Kubectl Autocompletion
 source <(kubectl completion zsh)
 
+# Enter into TMUX 
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
+
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+
