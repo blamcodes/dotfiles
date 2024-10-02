@@ -8,7 +8,7 @@
  */
 
 configuration {
-	font:							"Iosevka Nerd Font 10";
+	font:							"Inter 15";
     show-icons:                     true;
 	icon-theme: 					"Papirus";
     display-drun: 					"";
@@ -28,7 +28,7 @@ window {
 	border:							0px;
 	border-color:					@ac;
     border-radius:                  0px;
-	width:							500px;
+	width:							600px;
     location:                       center;
     x-offset:                       0;
     y-offset:                       0;
@@ -39,7 +39,7 @@ prompt {
 	padding: 						0px;
 	background-color: 				@al;
 	text-color: 					@ac;
-	font:							"feather 12";
+	font:							"feather 24";
 }
 
 entry {
@@ -48,21 +48,22 @@ entry {
     placeholder-color:              @fg;
     expand:                         true;
     horizontal-align:               0;
+    vertical-align:                 0.25;
     placeholder:                    "Search...";
-    padding:                        0px 0px 0px 8px;
+    padding:                        0px 8px 0px 8px;
     blink:                          true;
 }
 
 inputbar {
 	children: 						[ prompt, entry ];
-    background-color:               @bga;
+    background-color:               @se;
     text-color:                     @fg;
     expand:                         false;
 	border:							0px 0px 0px 0px;
     border-radius:                  0px;
 	border-color:					@ac;
     margin:                         0px;
-    padding:                        12px;
+    padding:                        20px;
 }
 
 listview {
@@ -97,8 +98,9 @@ element {
 element-icon {
     background-color:               transparent;
     text-color:               		inherit;
-    size:                           24px;
+    size:                           32px;
     border:                         0px;
+    padding:                        0px 8px;
 }
 
 element-text {
@@ -113,7 +115,7 @@ element-text {
 element selected {
     background-color:               @se;
     text-color:                     @fg;
-	border:							0px 0px 0px 2px;
-    border-radius:                  0px;
+	border:							0px 0px 0px 2.5px;
+    border-radius:                  5px;
     border-color:                  	@ac;
 }

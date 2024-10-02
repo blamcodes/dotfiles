@@ -7,7 +7,7 @@ WFILE="$HOME/.cache/wal/colors.sh"
 
 # Get colors
 pywal_get() {
-	wal -i "$1" -q -t
+	wal -i "$1" -q -t --saturate 1 -s
 }
 
 # Change colors
