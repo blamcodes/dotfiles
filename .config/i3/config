@@ -208,9 +208,10 @@ for_window [class="^.*"] border pixel 0
 
 
 # finds out, if available)
-exec_always --no-startup-id $HOME/.config/toggle-picom.sh
+
 # exec_always --no-startup-id autorandr --change && feh --bg-fill --randomize ~/.wallpapers/*
 exec_always --no-startup-id autorandr --change
+exec_always --no-startup-id $HOME/.config/toggle-picom.sh
 exec_always --no-startup-id $HOME/.config/polybar/cuts/scripts/pywal.sh ~/.wallpapers
 exec_always --no-startup-id $HOME/.config/polybar/cuts/launch.sh --cuts
 
