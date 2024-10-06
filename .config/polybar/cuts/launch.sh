@@ -10,16 +10,22 @@ killall -q polybar
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
+# We will use xrandr to determine which bars will appear on
+# which monitor.
 if type "xrandr"; then
-  # for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-  #   MONITOR=$m polybar -q top -c "$DIR"/config.ini &
-  # done
-  MONITOR="DP-3-8" polybar -q top -c "$DIR"/config.ini &
-  MONITOR="eDP-1" polybar -q alt -c "$DIR"/config.ini &
-  MONITOR="DP-3-1" polybar -q alt -c "$DIR"/config.ini &
-else
-  polybar -q top -c "$DIR"/config.ini &
-fi
+  active_monitors=$(xrandr --listactivemonitors | grep ":" | cut -d" " -f6)
+  for m in $active_monitors; do
+    output=$(xrandr --query | grep $m | cut -d" " -f1-4)
 
-# # Launch the bar
-# polybar -q top -c "$DIR"/config.ini &
+    # Cut the output string matching the output to determine if
+    # the monitor is primary or not and assign the appropriate
+    # bar (bar/top or bar/alt) to it.
+    is_primary=$(echo $output | cut -d" " -f3)
+    display=$(echo $output | cut -d" " -f1)
+    if [[ $is_primary = "primary" ]]; then
+      MONITOR=$display polybar -q top -c "$DIR"/config.ini &
+    else
+      MONITOR=$display polybar -q alt -c "$DIR"/config.ini &
+    fi
+  done
+fi
