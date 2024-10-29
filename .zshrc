@@ -72,6 +72,9 @@ ZSH_THEME="re5et"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+fpath+=/home/lamb6/.oh-my-zsh/custom/plugins/zsh-completions/src
+
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -107,6 +110,7 @@ export TERMINAL=kitty
 
 # Go 
 export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:/usr/local/bin/ct/ct"
 
 # NVIM
 export PATH="$PATH:/opt/nvim-linux64/bin"
@@ -114,6 +118,9 @@ export PATH="$PATH:/opt/i3-4.23"
 
 # PYWAL
 export PATH="$PATH:${HOME}/.local/bin/"
+
+export PATH="$PATH":"$HOME/.local/scripts/"
+bindkey -s ^f "tmux-sessionizer\n"
 
 # FD (Better Find)
 # - Follow Symbolic Links and Include Hidden Files (but exclude .git folders) 
@@ -152,5 +159,4 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 
