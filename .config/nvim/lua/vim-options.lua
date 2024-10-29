@@ -39,5 +39,27 @@ vim.cmd("set number")
 vim.cmd("set cursorline")
 
 -- Remove the ~ chars for empty lines.
--- @see https://tinyurl.com/mvx5u4jy 
+-- @see https://tinyurl.com/mvx5u4jy
 vim.opt.fillchars = { eob = ' ' }
+
+-- vim.diagnostic.config({
+--   virtual_text = false
+-- })
+
+-- The following command requires plug-ins "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", and optionally "kyazdani42/nvim-web-devicons" for icon support
+vim.api.nvim_set_keymap('n', '<leader>dd', '<cmd>Telescope diagnostics<CR>', { noremap = true, silent = true })
+-- If you don't want to use the telescope plug-in but still want to see all the errors/warnings, comment out the telescope line and uncomment this:
+-- vim.api.nvim_set_keymap('n', '<leader>dd', '<cmd>lua vim.diagnostic.setloclist()<CR>', { noremap = true, silent = true })
+
+-- Show line diagnostics automatically in hover window
+vim.o.updatetime = 500
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+-- Session
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

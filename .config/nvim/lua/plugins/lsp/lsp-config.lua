@@ -8,6 +8,7 @@ return {
           "lua_ls",
           "ts_ls",
           "jsonls",
+          "jdtls",
           "helm_ls",
           "yamlls",
           "phpactor",
@@ -62,30 +63,32 @@ return {
       -- 	capabilities = capabilities,
       --          })
       --
-      -- lspconfig.helm_ls.setup({
-      -- 	capabilities = capabilities,
-      --              -- settings = {
-      --              --     logLevel = "info",
-      --              --     valuesFile = {
-      --              --         mainValuesFile = "values.yaml",
-      --              --         lintOverlayValuesFile = "values.line.yaml",
-      --              --         additionalValuesFileGlobPattern = "values*.yaml"
-      --              --     },
-      --              --     yamlls = {
-      --              --         enabled = false,
-      --              --         enabledForFilesGlob = "*.{yaml,yml}",
-      --              --         diagnosticLimit = 50,
-      --              --         path = "yaml-language-server",
-      --              --         config = {
-      --              --             schemas = {
-      --              --                 kubernetes = "templates/**",
-      --              --             },
-      --              --             completion = true,
-      --              --             hover = true,
-      --              --         }
-      --              --     }
-      --              -- }
-      -- })
+
+      lspconfig.helm_ls.setup({
+        capabilities = capabilities,
+        settings = {
+          logLevel = "info",
+          valuesFile = {
+            mainValuesFile = "values.yaml",
+            lintOverlayValuesFile = "values.lint.yaml",
+            additionalValuesFileGlobPattern = "values*.yaml"
+          },
+          yamlls = {
+            enabled = true,
+            enabledForFilesGlob = "*.{yaml,yml}",
+            diagnosticLimit = 50,
+            showDiagnosticsDirectly = false,
+            path = "yaml-language-server",
+            config = {
+              schemas = {
+                kubernetes = "templates/**",
+              },
+              completion = true,
+              hover = true,
+            }
+          }
+        }
+      })
 
       -- lspconfig.yamlls.setup({
       -- 	capabilities = capabilities,

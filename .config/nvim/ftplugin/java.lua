@@ -52,18 +52,24 @@ local config = {
     settings = {
         ["java.format.settings.url"] =
         "https://gist.githubusercontent.com/fbricon/c5960a86f0a21405a61b79c0f1b4a0fc/raw/16b9b75077d08ae8b36706718a8393268d2ea5d2/formatter.xml",
-        --[[
-        java = {
-          format = {
-            enabled = true,
-            settings = {
-              -- https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml
-              url = "C:/Users/Bryan/test.xml",
-              profile = "MyFormat",
-            },
-          },
-        },
-        --]]
+        -- java = {
+        --   configuration = {
+        --     runtimes = {
+        --       {
+        --         name = "Java"
+        --       }
+        --     }
+        --   },
+        -- },
+        --   format = {
+        --     enabled = true,
+        --     settings = {
+        --       -- https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml
+        --       url = "C:/Users/Bryan/test.xml",
+        --       profile = "MyFormat",
+        --     },
+        --   },
+        -- },
     },
     --capabilities = capabilities,
     cmd = {
@@ -117,9 +123,6 @@ config.on_attach = function(_, bufnr)
     end, { desc = "Format current buffer with LSP" })
 end
 
---[[
-
-
 local bundles = {
     vim.fn.glob(
         global.home_path
@@ -129,7 +132,6 @@ local bundles = {
 }
 
 vim.list_extend(bundles, vim.split(vim.fn.glob(global.home_path .. "/vscode-java-test/server/*.jar", 1), "\n"))
-]]--
 
 print(vim.inspect(bundles))
 config.init_options = {

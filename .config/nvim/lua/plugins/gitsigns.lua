@@ -5,8 +5,7 @@ return {
 
     gitsigns.setup({
       signcolumn = true,
-      linehl = true,
-      current_line_blame = true,
+      linehl = false,
       current_line_blame_opts = {
         delay = 500,
       }
@@ -49,7 +48,7 @@ return {
     map('n', '<leader>hd', gitsigns.diffthis)
     map('n', '<leader>hD', function() gitsigns.diffthis('~') end)
     map('n', '<leader>td', gitsigns.toggle_deleted)
-
+    vim.keymap.set({ "n"}, "<leader>hl", ":0GcLog<CR>")
     -- Text object
     map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
   end

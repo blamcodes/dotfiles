@@ -1,5 +1,14 @@
 return {
   {
+    -- Allows Telescoping to a Tmux Session/Window.
+    'camgraff/telescope-tmux.nvim',
+    config = function()
+      local builtin = require('telescope.builtin')
+      -- vim.keymap.set('n', '<leader>ts', builtin.tmux.Session, {})
+      -- vim.keymap.set('n', '<leader>tw', builtin.tmux.Window, {})
+    end
+  },
+  {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.5',
     dependencies = {
@@ -30,6 +39,7 @@ return {
       })
 
       telescope.load_extension('fzf')
+      telescope.load_extension("noice")
 
       local builtin = require("telescope.builtin")
 
@@ -37,9 +47,11 @@ return {
       vim.keymap.set('n', '<leader>ff', builtin.git_files, {})
       vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
       vim.keymap.set('n', '<leader>fs', builtin.grep_string, {})
+      vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+      vim.keymap.set('n', '<leader>ft', builtin.treesitter, {})
       vim.keymap.set('n', '<leader>fd', function()
         builtin.lsp_document_symbols({
-          symbols = { 'function' }
+          symbols = { 'function', 'method', 'variable' }
         })
       end, {})
       vim.keymap.set('n', '<leader>fw', function()

@@ -48,7 +48,6 @@ return {
             "rcarriga/nvim-dap-ui",
             "leoluz/nvim-dap-go",
             "mfussenegger/nvim-jdtls",
-
             "nvim-neotest/nvim-nio",
         },
         config = function()
@@ -65,7 +64,6 @@ return {
                     args = { 9229 },
                 }
             }
-
 
             for _, language in ipairs { "typescript", "javascript" } do
                 dap.configurations[language] = {
@@ -120,6 +118,16 @@ return {
                 }
             end
 
+            dap.configurations.java = {
+              {
+                type = 'java';
+                request = 'attach';
+                name = "Debug (Attach) - Remote";
+                projectName = "luau",
+                hostName = "localhost";
+                port = 5005;
+              },
+            }
             require("dapui").setup()
             -- require("dap-python").setup("python")
 
@@ -148,6 +156,9 @@ return {
             dap.listeners.before.event_exited.dapui_config = function()
                 dapui.close()
             end
+
+            vim.fn.sign_define('DapBreakpoint',{ text ='🟥', texthl ='', linehl ='', numhl =''})
+            vim.fn.sign_define('DapStopped',{ text ='▶️', texthl ='', linehl ='', numhl =''})
 
             -- Keybinds
             vim.keymap.set("n", "<Leader>dt", dap.toggle_breakpoint, {})
