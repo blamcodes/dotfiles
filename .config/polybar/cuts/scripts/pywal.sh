@@ -7,7 +7,11 @@ WFILE="$HOME/.cache/wal/colors.sh"
 
 # Get colors
 pywal_get() {
-	wal -i "$1" -q -t --saturate 1 -s
+	wal -n -i "$@" -s -t
+}
+
+nitrogen_set() {
+  nitrogen $(< "/home/lamb6/.cache/wal/wal" ) --set-scaled
 }
 
 # Change colors
@@ -44,20 +48,21 @@ change_color() {
 	* {
 	  al:   #00000000;
 	  bg:   #${BG}BF;
-	  bga:  #${BGA}FF;
-	  fg:   #${FG}FF;
-	  ac:   ${RED}FF;
-	  se:   ${COLOR12}1A;
+	  bga:  #${BGA}1A;
+	  fg:   #${FGA}FF;
+	  ac:   ${GREEN}FF;
+	  se:   ${COLOR15}1A;
 	}
 	EOF
 	
-	polybar-msg cmd restart
+	# polybar-msg cmd restart
 }
 
 # Main
 if [[ -x "`which wal`" ]]; then
 	if [[ "$1" ]]; then
 		pywal_get "$1"
+
 
 		# Source the pywal color file
 		if [[ -e "$WFILE" ]]; then
@@ -66,16 +71,11 @@ if [[ -x "`which wal`" ]]; then
 			echo 'Color file does not exist, exiting...'
 			exit 1
 		fi
-    echo "hello"
-    echo $background
-    echo $background
-    echo $color1
-
 		BGC=`printf "%s\n" "$background"`
 		BG=${BGC:1}
-		BGAC=`printf "%s\n" "$foreground"`
+		BGAC=`printf "%s\n" "$background"`
 		BGA=${BGAC:1}
-		FGC=`printf "%s\n" "$background"`
+		FGC=`printf "%s\n" "$foreground"`
 		FG=${FGC:1}
 		FGAC=`printf "%s\n" "$color7"`
 		FGA=${FGAC:1}
@@ -100,6 +100,7 @@ if [[ -x "`which wal`" ]]; then
 		COLOR15=`printf "%s\n" "$color15"`
 
 		change_color
+    nitrogen_set 
 	else echo -e "[!] Please enter the path to wallpaper. \n"
 		echo "Usage : ./pywal.sh path/to/image"
 	fi
