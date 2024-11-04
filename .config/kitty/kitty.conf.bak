@@ -87,7 +87,7 @@ symbol_map U+2500-U+259f Symbols Nerd Font Mono
 
 #: Map the specified Unicode codepoints to a particular font. Useful
 #: if you need special rendering for some symbols, such as for
-#: Powerline. Avoids the need for patched fonts. Each Unicode code
+#: Powerline. Avoids the need for patched onts. Each Unicode code
 #: point is specified in the form `U+<code point in hexadecimal>`. You
 #: can specify multiple code points, separated by commas and ranges
 #: separated by hyphens. This option can be specified multiple times.
@@ -850,9 +850,9 @@ symbol_map U+2500-U+259f Symbols Nerd Font Mono
 
 #: Window layout {{{
 
-# remember_window_size  yes
-# initial_window_width  640
-# initial_window_height 400
+ remember_window_size  no
+ initial_window_width  945
+ initial_window_height 1152
 
 #: If enabled, the OS Window size will be remembered so that new
 #: instances of kitty will have the same size as the previous
@@ -877,7 +877,7 @@ symbol_map U+2500-U+259f Symbols Nerd Font Mono
 #: start_resizing_window. The cells value is used for horizontal
 #: resizing, and the lines value is used for vertical resizing.
 
-# window_border_width 0.5pt
+window_border_width 0
 
 #: The width of window borders. Can be either in pixels (px) or pts
 #: (pt). Values in pts will be rounded to the nearest number of pixels
@@ -885,21 +885,21 @@ symbol_map U+2500-U+259f Symbols Nerd Font Mono
 #: to be pts. Note that borders are displayed only when more than one
 #: window is visible. They are meant to separate multiple windows.
 
-# draw_minimal_borders yes
+draw_minimal_borders no
 
 #: Draw only the minimum borders needed. This means that only the
 #: borders that separate the window from a neighbor are drawn. Note
 #: that setting a non-zero window_margin_width overrides this and
 #: causes all borders to be drawn.
 
-# window_margin_width 0
+window_margin_width -1
 
 #: The window margin (in pts) (blank area outside the border). A
 #: single value sets all four sides. Two values set the vertical and
 #: horizontal sides. Three values set top, horizontal and bottom. Four
 #: values set top, right, bottom and left.
 
-# single_window_margin_width -1
+single_window_margin_width -1
 
 #: The window margin to use when only a single window is visible (in
 #: pts). Negative values will cause the value of window_margin_width
@@ -907,14 +907,17 @@ symbol_map U+2500-U+259f Symbols Nerd Font Mono
 #: set the vertical and horizontal sides. Three values set top,
 #: horizontal and bottom. Four values set top, right, bottom and left.
 
-window_padding_width 0 10
+window_padding_width -1
+window_padding_height -1
+
+
 
 #: The window padding (in pts) (blank area between the text and the
 #: window border). A single value sets all four sides. Two values set
 #: the vertical and horizontal sides. Three values set top, horizontal
 #: and bottom. Four values set top, right, bottom and left.
 
-# single_window_padding_width -1
+single_window_padding_width -1
 
 #: The window padding to use when only a single window is visible (in
 #: pts). Negative values will cause the value of window_padding_width
@@ -922,7 +925,7 @@ window_padding_width 0 10
 #: set the vertical and horizontal sides. Three values set top,
 #: horizontal and bottom. Four values set top, right, bottom and left.
 
-# placement_strategy center
+placement_strategy bottom
 
 #: When the window size is not an exact multiple of the cell size, the
 #: cell area of the terminal window will have some extra padding on
@@ -933,7 +936,7 @@ window_padding_width 0 10
 #: left, top, top-right, left, center, right, bottom-left, bottom,
 #: bottom-right.
 
-# active_border_color #00ff00
+active_border_color none
 
 #: The color for the border of the active window. Set this to none to
 #: not draw borders around the active window.
@@ -1012,7 +1015,7 @@ window_padding_width 0 10
 #: number is used so that kitty is "ready" quickly after the end of
 #: resizing, while not also continuously redrawing, to save energy.
 
-# resize_in_steps no
+resize_in_steps yes
 
 #: Resize the OS window in steps as large as the cells, instead of
 #: with the usual pixel accuracy. Combined with initial_window_width
@@ -1216,7 +1219,7 @@ window_padding_width 0 10
 # background #000000
 
 #: The foreground and background colors.
-background_opacity 0.85
+background_opacity 0.75
 
 #: The opacity of the background. A number between zero and one, where
 #: one is opaque and zero is fully transparent. This will only work if
@@ -2628,11 +2631,9 @@ background_opacity 0.85
 
 
 
-
-
 # BEGIN_KITTY_FONTS
-font_family      family='JetBrainsMono Nerd Font' postscript_name=JetBrainsMonoNF-Regular
-bold_font        family='JetBrainsMono Nerd Font' postscript_name=JetBrainsMonoNF-Bold
-italic_font      family='JetBrainsMono Nerd Font' postscript_name=JetBrainsMonoNF-ExtraLightItalic
-bold_italic_font family='JetBrainsMono Nerd Font' postscript_name=JetBrainsMonoNF-ExtraBoldItalic
+font_family      family='JetBrains Mono' postscript_name=JetBrainsMonoNF-Regular
+bold_font        family='JetBrains Mono' postscript_name=JetBrainsMonoNF-Bold
+italic_font      family='JetBrains Mono' style='Medium Italic'
+bold_italic_font family='JetBrains Mono' postscript_name=JetBrainsMonoNF-ExtraBoldItalic
 # END_KITTY_FONTS
