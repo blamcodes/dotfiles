@@ -4,7 +4,30 @@
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 #
+include catppuccin-macchiato
 
+### Appearance
+# window corner radius in px
+corner_radius 0
+
+# Window background blur
+blur on
+blur_xray off
+blur_passes 2
+blur_radius 5
+
+shadows on
+shadows_on_csd off
+shadow_blur_radius 20
+shadow_color #0000007F
+
+# inactive window fade amount. 0.0 = no dimming, 1.0 = fully dimmed
+default_dim_inactive 0.0
+dim_inactive_colors.unfocused #000000FF
+dim_inactive_colors.urgent #900000FF
+
+# Move minimized windows into Scratchpad (enable|disable)
+scratchpad_minimize disable
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
@@ -205,11 +228,31 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+client.focused           $lavender $base $text  $rosewater $lavender
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-# bar {
-#         status_command i3status
-# }
+bar {
+  position top
+  status_command /usr/bin/i3status-rs ~/.config/i3status-rust/config.toml
+
+  colors {
+    background         $base
+    statusline         $text
+    focused_statusline $text
+    focused_separator  $base
+
+    focused_workspace  $base  $mauve    $crust
+    active_workspace   $base  $surface2 $text
+    inactive_workspace $base  $base     $text
+    urgent_workspace   $base  $red      $crust
+  }
+}
 
 # Gaps
 gaps inner 10px
@@ -221,9 +264,11 @@ for_window [class="^.*"] border pixel 0
 
 # finds out, if available)
 
-exec --no-startup-id $HOME/.screenlayout/default.sh
-exec --no-startup-id $HOME/.config/toggle-picom.sh
+exec waypaper --folder ~/Pictures/wallpapers --backend swaybg --fill fill --random
+
+# exec --no-startup-id $HOME/.screenlayout/default.sh
+# exec --no-startup-id $HOME/.config/toggle-picom.sh
 # This contains a modified line with `nitrogen` to set the background.
-exec_always --no-startup-id $HOME/.config/polybar/cuts/scripts/pywal.sh ~/.wallpapers
-exec_always --no-startup-id $HOME/.config/polybar/cuts/launch.sh --cuts
+# exec_always --no-startup-id $HOME/.config/polybar/cuts/scripts/pywal.sh ~/.wallpapers
+# exec_always --no-startup-id $HOME/.config/polybar/cuts/launch.sh --cuts
 

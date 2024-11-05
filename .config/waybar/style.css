@@ -1,7 +1,7 @@
 @import "macchiato.css";
 * {
   font-family: JetBrainsMono Nerd Font;
-  font-size: 17px;
+  font-size: 15px;
   min-height: 0;
 }
 
@@ -13,10 +13,10 @@
 
 #window,
 #workspaces {
+  background-color: @surface0;
   border-radius: 1rem;
   margin: 5px;
-  background-color: @surface0;
-  margin-left: 1rem;
+  padding: 0px 10px;
 }
 
 #window {
@@ -25,21 +25,18 @@
 
 #workspaces button {
   color: @lavender;
-  border-radius: 1rem;
-  padding: 0.4rem;
 }
 
 #workspaces button.active {
-  color: @sky;
-  border-radius: 1rem;
+  color: @green;
 }
 
 #workspaces button:hover {
   color: @sapphire;
-  border-radius: 1rem;
 }
 
 #cpu,
+#custom-notification,
 #memory,
 #network,
 #power-profiles-daemon,
@@ -62,6 +59,10 @@
 
 #memory {
   border-radius: 0rem 1rem 1rem 0rem;
+}
+
+#custom-notification {
+  border-radius: 1rem 1rem 1rem 1rem;
 }
 
 #clock {
