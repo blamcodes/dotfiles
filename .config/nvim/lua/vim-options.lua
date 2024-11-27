@@ -7,12 +7,15 @@ vim.g.mapleader = " "
 
 -- File Lines
 vim.wo.relativenumber = true
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 -- INDENT Settings
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 vim.opt.shiftwidth = 2
+
+-- Editor Config
+vim.g.editorconfig = true
 
 -- TAB Settings
 vim.opt.expandtab = true
@@ -31,12 +34,10 @@ vim.opt.path:append { '**' }
 
 -- COPY/PASTING Settings
 vim.cmd("set clipboard+=unnamedplus")
-
-
 vim.cmd("set number")
-
 -- Highlight the current line
 vim.cmd("set cursorline")
+
 
 -- Remove the ~ chars for empty lines.
 -- @see https://tinyurl.com/mvx5u4jy
