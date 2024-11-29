@@ -1,7 +1,7 @@
 [
     {
         "key": "general:gaps_in",
-        "value": 2
+        "value": 5
     },
     {
         "key": "general:gaps_out",
@@ -13,15 +13,15 @@
     },
     {
         "key": "general:border_size",
-        "value": 1
+        "value": 0
     },
     {
         "key": "decoration:dim_inactive",
-        "value": false
+        "value": true
     },
     {
         "key": "decoration:dim_strength",
-        "value": 0.0
+        "value": 0.2
     },
     {
         "key": "decoration:dim_around",
@@ -38,5 +38,53 @@
     {
         "key": "decoration:fullscreen_opacity",
         "value": 1.0
+    },
+    {
+        "key": "general:col.inactive_border",
+        "value": "rgb(77767b)"
+    },
+    {
+        "key": "decoration:blur:size",
+        "value": 10
+    },
+    {
+        "key": "decoration:blur:passes",
+        "value": 2
+    },
+    {
+        "key": "decoration:blur:xray",
+        "value": true
+    },
+    {
+        "key": "decoration:blur:noise",
+        "value": 0.0
+    },
+    {
+        "key": "decoration:blur:contrast",
+        "value": 0.8
+    },
+    {
+        "key": "decoration:blur:brightness",
+        "value": 1.0
+    },
+    {
+        "key": "decoration:blur:vibrancy",
+        "value": 0.1
+    },
+    {
+        "key": "decoration:shadow:scale",
+        "value": 1.0
+    },
+    {
+        "key": "decoration:shadow:ignore_window",
+        "value": true
+    },
+    {
+        "key": "decoration:shadow:render_power",
+        "value": 4
+    },
+    {
+        "key": "decoration:shadow:range",
+        "value": 23
     }
 ]
