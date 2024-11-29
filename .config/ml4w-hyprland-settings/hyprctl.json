@@ -1,0 +1,42 @@
+[
+    {
+        "key": "general:gaps_in",
+        "value": 2
+    },
+    {
+        "key": "general:gaps_out",
+        "value": 5
+    },
+    {
+        "key": "decoration:rounding",
+        "value": 2
+    },
+    {
+        "key": "general:border_size",
+        "value": 1
+    },
+    {
+        "key": "decoration:dim_inactive",
+        "value": false
+    },
+    {
+        "key": "decoration:dim_strength",
+        "value": 0.0
+    },
+    {
+        "key": "decoration:dim_around",
+        "value": 0.4
+    },
+    {
+        "key": "decoration:dim_special",
+        "value": 0.0
+    },
+    {
+        "key": "decoration:inactive_opacity",
+        "value": 1.0
+    },
+    {
+        "key": "decoration:fullscreen_opacity",
+        "value": 1.0
+    }
+]
