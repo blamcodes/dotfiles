@@ -1,0 +1,3 @@
+[submodule "obsidian-vimrc"]
+	path = obsidian-vimrc
+	url = git@github.com:blamcodes/obsidian-vimrc.git
