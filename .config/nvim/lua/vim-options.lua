@@ -38,7 +38,6 @@ vim.cmd("set number")
 -- Highlight the current line
 vim.cmd("set cursorline")
 
-
 -- Remove the ~ chars for empty lines.
 -- @see https://tinyurl.com/mvx5u4jy
 vim.opt.fillchars = { eob = ' ' }

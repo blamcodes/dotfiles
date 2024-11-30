@@ -47,6 +47,9 @@ return {
       lspconfig.pyright.setup({
         capabilities = capabilities,
       })
+      lspconfig.clangd.setup({
+        capabilities = capabilities,
+      })
       lspconfig.dockerls.setup({
         capabilities = capabilities,
       })
