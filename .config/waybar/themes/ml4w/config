@@ -13,10 +13,10 @@
       // General Settings
       "layer": "top",
       "output": "DP-3",
-      "margin-top": 5,
-      "margin-bottom": 0,
-      "margin-left": 5,
-      "margin-right": 5,    
+      "margin-top": 2.5,
+      "margin-bottom": -5,
+      "margin-left": 2.5,
+      "margin-right": 2.5,    
       "spacing": 0,
 
       // Load Modules
@@ -34,30 +34,31 @@
       // Modules Center
       "modules-center": [
           "clock",
+          "temperature",
           "custom/updates",
       ],
 
       // Modules Right    
       "modules-right": [
+          "group/hardware",
+          "mpd",
           "pulseaudio",
           //"backlight",
           "bluetooth",
           "battery", 
           "network",
-          "group/hardware",
+
           "group/tools",
           "tray",
           "group/settings",
-          "custom/ml4w-welcome",
-          "group/links",
           "custom/exit",
       ],
   },
   {
       "layer": "top",
       "output": "!DP-3",
-      "margin-top": 5,
-      "margin-bottom": 0,
+      "margin-top": 2.5,
+      "margin-bottom": -5,
       "margin-left": 5,
       "margin-right": 14,    
       "spacing": 0,
