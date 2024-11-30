@@ -257,7 +257,7 @@
   "network": {
     "format": "{ifname}",
     "format-wifi": "   {signalStrength}%",
-    "format-ethernet": "  {ifname}",
+    "format-ethernet": " ",
     "format-disconnected": "Disconnected",
     "tooltip-format": " {ifname} via {gwaddri}",
     "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
@@ -287,7 +287,7 @@
   // Pulseaudio
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
-    "format": "{icon}  {volume}%",
+    "format": "{icon}",
     "format-bluetooth": "{volume}% {icon} {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
     "format-muted": " {format_source}",
@@ -306,7 +306,7 @@
   },
 
   "bluetooth": {
-    "format": " {status}",
+    "format": "",
     "format-disabled": "",
     "format-off": "",
     "interval": 30,

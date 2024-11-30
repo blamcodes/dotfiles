@@ -177,7 +177,7 @@ window#waybar.empty #window {
 #custom-quicklink10,
 #custom-waybarthemes {
     margin-right: 23px;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: bold;
     color: @iconcolor;
 }

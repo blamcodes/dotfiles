@@ -14,7 +14,7 @@
       "layer": "top",
       "output": "DP-3",
       "margin-top": 5,
-      "margin-bottom": -5,
+      "margin-bottom": 0,
       "margin-left": 5,
       "margin-right": 5,    
       "spacing": 0,
@@ -29,20 +29,16 @@
       "modules-left": [
         "hyprland/workspaces",
         "custom/empty",
-        "group/links",
       ],
 
       // Modules Center
-      //"modules-center": [
-
-        // "wlr/taskbar",
-        // "group/quicklinks",
-        // "hyprland/window",
-      //],
+      "modules-center": [
+          "clock",
+          "custom/updates",
+      ],
 
       // Modules Right    
       "modules-right": [
-          "custom/updates",
           "pulseaudio",
           //"backlight",
           "bluetooth",
@@ -51,22 +47,32 @@
           "group/hardware",
           "group/tools",
           "tray",
-          "custom/exit",
-          "custom/ml4w-welcome",
           "group/settings",
-          "clock"
+          "custom/ml4w-welcome",
+          "group/links",
+          "custom/exit",
       ],
   },
   {
       "layer": "top",
       "output": "!DP-3",
       "margin-top": 5,
-      "margin-bottom": -5,
+      "margin-bottom": 0,
       "margin-left": 5,
       "margin-right": 14,    
       "spacing": 0,
+
+      // Load Modules
+      "include": [
+          "~/.config/ml4w/settings/waybar-quicklinks.json",
+          "~/.config/waybar/modules.json"
+      ],
       "modules-left": [
         "hyprland/workspaces",
       ],
+      "modules-center": [
+        "clock"
+      ],
+
   }
 ]
