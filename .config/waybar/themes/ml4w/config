@@ -8,50 +8,65 @@
 // by Stephan Raabe (2023) 
 // ----------------------------------------------------- 
 //
-{
-    // General Settings
-    "layer": "top",
-    "margin-top": 14,
-    "margin-bottom": 0,
-    "margin-left": 14,
-    "margin-right": 14,    
-    "spacing": 0,
+[
+  {
+      // General Settings
+      "layer": "top",
+      "output": "DP-3",
+      "margin-top": 5,
+      "margin-bottom": -5,
+      "margin-left": 5,
+      "margin-right": 5,    
+      "spacing": 0,
 
-    // Load Modules
-    "include": [
-        "~/.config/ml4w/settings/waybar-quicklinks.json",
-        "~/.config/waybar/modules.json"
-    ],
+      // Load Modules
+      "include": [
+          "~/.config/ml4w/settings/waybar-quicklinks.json",
+          "~/.config/waybar/modules.json"
+      ],
 
-    // Modules Left
-    "modules-left": [
-"custom/appmenu",
+      // Modules Left
+      "modules-left": [
+        "hyprland/workspaces",
+        "custom/empty",
         "group/links",
-"group/settings",
-"wlr/taskbar",
-        "group/quicklinks",
-"hyprland/window",
-        "custom/empty"
-    ],
+      ],
 
-    // Modules Center
-    "modules-center": [
-        "hyprland/workspaces"
-    ],
+      // Modules Center
+      //"modules-center": [
 
-    // Modules Right    
-    "modules-right": [
-        "custom/updates",
-        "pulseaudio",
-//"backlight",
-        "bluetooth",
-        "battery", 
-"network",
-        "group/hardware",
-        "group/tools",
-"tray",
-        "custom/exit",
-        "custom/ml4w-welcome",
-        "clock"
-    ]
-}
+        // "wlr/taskbar",
+        // "group/quicklinks",
+        // "hyprland/window",
+      //],
+
+      // Modules Right    
+      "modules-right": [
+          "custom/updates",
+          "pulseaudio",
+          //"backlight",
+          "bluetooth",
+          "battery", 
+          "network",
+          "group/hardware",
+          "group/tools",
+          "tray",
+          "custom/exit",
+          "custom/ml4w-welcome",
+          "group/settings",
+          "clock"
+      ],
+  },
+  {
+      "layer": "top",
+      "output": "!DP-3",
+      "margin-top": 5,
+      "margin-bottom": -5,
+      "margin-left": 5,
+      "margin-right": 14,    
+      "spacing": 0,
+      "modules-left": [
+        "hyprland/workspaces",
+      ],
+  }
+]

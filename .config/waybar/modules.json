@@ -1,30 +1,16 @@
-//  __  __           _       _
-// |  \/  | ___   __| |_   _| | ___  ___
-// | |\/| |/ _ \ / _` | | | | |/ _ \/ __|
-// | |  | | (_) | (_| | |_| | |  __/\__ \
-// |_|  |_|\___/ \__,_|\__,_|_|\___||___/
-//
-//
 {
-  // Workspaces
   "hyprland/workspaces": {
     "on-scroll-up": "hyprctl dispatch workspace r-1",
     "on-scroll-down": "hyprctl dispatch workspace r+1",
     "on-click": "activate",
-    "active-only": false,
-    "all-outputs": true,
     "format": "{}",
     "format-icons": {
       "urgent": "",
       "active": "",
       "default": ""
-    },
-    "persistent-workspaces": {
-            "*": 1
     }
   },
 
-  // Taskbar
   "wlr/taskbar": {
     "format": "{icon}",
     "icon-size": 18,
@@ -41,19 +27,10 @@
     }
   },
 
-  // Hyprland Window
   "hyprland/window": {
-    "rewrite": {
-      "(.*) - Brave": "$1",
-      "(.*) - Chromium": "$1",
-      "(.*) - Brave Search": "$1",
-      "(.*) - Outlook": "$1",
-      "(.*) Microsoft Teams": "$1"
-    },
-    "separate-outputs": true
+      "separate-outputs": true
   },
 
-  // ML4W Welcome App
   "custom/ml4w-welcome": {
     "on-click": "sleep 0.1 && ~/.config/ml4w/settings/ml4w-sidebar.sh",
     "on-click-right": "sleep 0.1 && com.ml4w.welcome",
@@ -61,18 +38,15 @@
     "tooltip-format": "Open Sidebar"
   },
 
-  // Empty
   "custom/empty": {
-    "format": ""
+    "format": "  "
   },
 
-    // Tools
   "custom/tools": {
     "format": "",
     "tooltip-format": "Tools"
   },
 
-  // Cliphist
   "custom/cliphist": {
     "format": "",
     "on-click": "sleep 0.1 && ~/.config/ml4w/scripts/cliphist.sh",
@@ -81,7 +55,6 @@
     "tooltip-format": "Clipboard Manager"
   },
 
-  // Updates Count
   "custom/updates": {
     "format": "  {}",
     "escape": true,
@@ -92,7 +65,6 @@
     "on-click-right": "~/.config/ml4w/settings/software.sh"
   },
 
-  // Wallpaper
   "custom/wallpaper": {
     "format": "",
     "on-click": "waypaper",
@@ -100,59 +72,49 @@
     "tooltip-format": "Left: Select a wallpaper\nRight: Select wallpaper effect"
   },
 
-  // Waybar Themes
   "custom/waybarthemes": {
     "format": "",
     "on-click": "~/.config/waybar/themeswitcher.sh",
     "tooltip-format": "Select a waybar theme"
   },
 
-  // Settings
   "custom/settings": {
     "format": "",
     "on-click": "sleep 0.1 && com.ml4w.dotfilessettings",
     "tooltip-format": "ML4W Dotfiles Settings"
   },
 
-  // Keybindings
   "custom/keybindings": {
     "format": "",
     "on-click": "~/.config/hypr/scripts/keybindings.sh",
     "tooltip": false
   },
 
-  // ChatGPT Launcher
   "custom/chatgpt": {
     "format": " ",
     "on-click": "~/.config/ml4w/settings/ai.sh",
     "tooltip-format": "AI Support"
   },
 
-  // Calculator
   "custom/calculator": {
     "format": "",
     "on-click": "qalculate-gtk",
     "tooltip-format": "Open calculator"
   },
 
-  // Windows VM
   "custom/windowsvm": {
     "format": "",
     "on-click": "~/.config/ml4w/scripts/launchvm.sh",
     "tooltip": false
   },
 
-  // Rofi Application Launcher
   "custom/appmenu": {
-    // START APPS LABEL
     "format": "Apps",
-    // END APPS LABEL
     "on-click": "sleep 0.2;pkill rofi || rofi -show drun -replace",
     "on-click-right": "~/.config/hypr/scripts/keybindings.sh",
     "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
   },
 
-  // Rofi Application Launcher
   "custom/appmenuicon": {
     "format": "",
     "on-click": "sleep 0.2;rofi -show drun -replace",
@@ -160,7 +122,6 @@
     "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
   },
 
-  // Power Menu
   "custom/exit": {
     "format": "",
     "on-click": "~/.config/ml4w/scripts/wlogout.sh",
@@ -344,7 +305,6 @@
     "on-click": "pavucontrol"
   },
 
-  // Bluetooth
   "bluetooth": {
     "format": " {status}",
     "format-disabled": "",
@@ -354,14 +314,12 @@
     "format-no-controller": ""
   },
 
-  // Other
   "user": {
     "format": "{user}",
     "interval": 60,
     "icon": false
   },
 
-  // backlight:
   "backlight": {
     "format": "{icon} {percent}%",
     "format-icons": [
