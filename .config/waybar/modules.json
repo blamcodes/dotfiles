@@ -179,21 +179,35 @@
   },
 
   // CPU
+  "custom/cpu-icon": {
+    "format": ""
+  },
+
+  // CPU
   "cpu": {
-    "format": " {usage}%",
+    "format": "{usage}%",
     "on-click": "~/.config/ml4w/settings/system-monitor.sh"
+  },
+
+  // Memory Icon
+  "custom/memory-icon": {
+    "format": ""
   },
 
   // Memory
-  "memory": {
-    "format": " {}%",
+  "custom/memory": {
+    "format": "{}%",
     "on-click": "~/.config/ml4w/settings/system-monitor.sh"
   },
 
+  // CPU
+  "custom/disk-icon": {
+    "format": ""
+  },
   // Harddisc space used
   "disk": {
     "interval": 30,
-    "format": "D {percentage_used}% ",
+    "format": "{percentage_used}% ",
     "path": "/",
     "on-click": "~/.config/ml4w/settings/system-monitor.sh"
   },
@@ -205,7 +219,14 @@
   // Group Hardware
   "group/hardware": {
     "orientation": "inherit",
-    "modules": ["cpu", "memory", "disk"]
+    "modules": [
+      "custom/cpu-icon", 
+      "cpu", 
+      "custom/memory-icon", 
+      "memory", 
+      "custom/disk-icon", 
+      "disk"
+    ]
   },
 
   // Group Tools

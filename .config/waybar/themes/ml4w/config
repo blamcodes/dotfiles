@@ -40,6 +40,7 @@
 
       // Modules Right    
       "modules-right": [
+          "cpuicon",
           "group/hardware",
           "mpd",
           "pulseaudio",
