@@ -5,6 +5,8 @@ ttf-jetbrains-mono
 ttf-nerd-fonts-symbols
 sddm
 zsh
+git
+stow
 fd
 fzf
 exa
@@ -34,6 +36,7 @@ hypridle
 hyprutils
 hyprlock
 swappy
+tmux
 hyprpaper
 dotnet-sdk
 wayland-protocols
