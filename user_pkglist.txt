@@ -1,0 +1,48 @@
+## Save this under /home/liveuser/user_pkglist.txt on USB installer.
+## -----------------------------------------------------------------------
+acpi
+ttf-jetbrains-mono
+ttf-nerd-fonts-symbols
+sddm
+zsh
+fd
+fzf
+exa
+bat
+zoxide
+yazi
+rofi-wayland
+dunst
+slurp
+grim
+kitty
+jq
+swappy
+brightnessctl
+cliphist
+network-manager-applet
+htop
+firefox
+neovim
+lazygit
+dbeaver
+docker
+docker-compose
+obsidian
+hyprland
+hypridle
+hyprutils
+hyprlock
+swappy
+hyprpaper
+dotnet-sdk
+wayland-protocols
+wl-clipboard
+xdg-desktop-portal-hyprland
+xed
+xorg-xwayland
+waybar
+
+# Aur
+# - ml4w  
+# - smile # for emojis
