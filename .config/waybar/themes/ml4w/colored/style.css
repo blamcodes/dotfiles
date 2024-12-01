@@ -5,6 +5,11 @@
 
 @define-color backgroundlight @color5;
 @define-color backgrounddark @color11;
+@define-color pycolor1 @color1;
+@define-color pycolor2 @color2;
+@define-color pycolor3 @color3;
+@define-color pycolor6 @color6;
+@define-color pycolor14 @color14;
 @define-color workspacesbackground1 @color5;
 @define-color workspacesbackground2 @color11;
 @define-color bordercolor @color11;
