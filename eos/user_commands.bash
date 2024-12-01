@@ -73,9 +73,7 @@ _PostInstallCommands() {
     git clone git@github.com:blamcodes/dotfiles.git dotfiles
     cd dotfiles
     rm -rf /home/$username/.config/hypr && stow .config -t /home/$username/.config
-    stow .tmux.conf -t /home/$username
-    stow .tmux -t /home/$username
-    stow .tmux -t /home/$username/.tmux
+    stow .
     chmod -R $username:$username /home/$username
 
     echo "## Docker adding user to docker..."
