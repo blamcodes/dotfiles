@@ -13,7 +13,7 @@
     },
     {
         "key": "general:border_size",
-        "value": 1
+        "value": 0
     },
     {
         "key": "decoration:dim_inactive",
@@ -65,7 +65,7 @@
     },
     {
         "key": "decoration:blur:brightness",
-        "value": 1.0
+        "value": 0.7
     },
     {
         "key": "decoration:blur:vibrancy",
