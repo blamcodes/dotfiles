@@ -1,1 +1,7 @@
 obsidian-vimrc
+.gitignore
+.stow-local.ignore
+eos
+imgs
+README.md
+.gitmodules
