@@ -77,6 +77,15 @@ _PostInstallCommands() {
     stow .tmux -t /home/$username
     stow .tmux -t /home/$username/.tmux
     chmod -R $username:$username /home/$username
+
+    echo "## Docker adding user to docker..."
+    group add docker
+    usermod -aG docker $username
+    newgrp docker
+
+    echo "## Starting docker socket..."
+    systemctl enable docker.socket
+    systemctl start docker.socket
 }
 
 ## Execute the commands if the parameter list is valid:
