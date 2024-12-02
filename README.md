@@ -4,6 +4,14 @@ Uses [ml4w](https://www.ml4w.com) as a base with additional customization to mak
 
 ![](imgs/Desktop-Screen.png)
 
+## AUR Packages
+- ml4w
+```shell
+bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)
+```
+
+- waypaper
+
 ## Requires hy3
 
 Run
