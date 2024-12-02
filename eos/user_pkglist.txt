@@ -9,7 +9,7 @@ git
 stow
 fd
 fzf
-exa
+eza
 bat
 zoxide
 yazi
