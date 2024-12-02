@@ -72,8 +72,7 @@ _PostInstallCommands() {
     cd /home/$username
     git clone git@github.com:blamcodes/dotfiles.git dotfiles
     cd dotfiles
-    rm -rf /home/$username/.config/hypr && stow .config -t /home/$username/.config
-    stow .
+    rm -rf /home/$username/.config/hypr && stow .
     chmod -R $username:$username /home/$username
 
     echo "## Docker adding user to docker..."
