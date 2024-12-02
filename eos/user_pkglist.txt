@@ -10,6 +10,9 @@ stow
 fd
 fzf
 eza
+cmake
+meson
+cpio
 bat
 zoxide
 yazi
