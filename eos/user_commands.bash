@@ -68,12 +68,18 @@ _PostInstallCommands() {
     usermod --shell /bin/zsh $username
     grep $username /etc/passwd
 
-    echo "## Cloning dotfiles..."
+    echo "## Setting i3 like bindings for hyprland..."
     cd /home/$username
-    git clone git@github.com:blamcodes/dotfiles.git dotfiles
-    cd dotfiles
-    rm -rf /home/$username/.config/hypr && stow .
-    chmod -R $username:$username /home/$username
+
+    sed '/s/\$menu = wofi --show drun/\$menu = rofi -show drun/' .config/hypr/hyprland.conf
+    sed '/s/bind = \$mainMod, R, exec/bind = \$mainMod, D, exec/' .config/hypr/hyprland.conf
+    sed '/s/bind = \$mainMod, Q, exec/bind = \$mainMod, RETURN, exec/' .config/hypr/hyprland.conf
+    sed '/s/bind = \$mainMod, C, killactive/bind = \$mainMod SHIFT, Q, killactive/' .config/hypr/hyprland.conf
+    sed '/s/bind = \$mainMod, left, movefocus/bind = \$mainMod, h, movefocus/' .config/hypr/hyprland.conf
+    sed '/s/bind = \$mainMod, right, movefocus/bind = \$mainMod, l, movefocus/' .config/hypr/hyprland.conf
+    sed '/s/bind = \$mainMod, up, movefocus/bind = \$mainMod, k, movefocus/' .config/hypr/hyprland.conf
+    sed '/s/bind = \$mainMod, down, movefocus/bind = \$mainMod, j, movefocus/' .config/hypr/hyprland.conf
+    sed '/s/disable_hyprland_logo = false/disable_hyprland_logo = true/' .config/hypr/hyprland.conf
 
     echo "## Docker adding user to docker..."
     group add docker
