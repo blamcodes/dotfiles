@@ -44,5 +44,6 @@ return {
     vim.api.nvim_set_hl(0, 'CursorLine', { bg = colors.mantle, fg = "NONE", bold = false })
     vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = "#939ab7", bold = true })
     vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = "#939ab7", bold = false })
+    vim.api.nvim_set_hl(0, 'Folded', { fg = "#5b6078", bold = false })
   end,
 }
