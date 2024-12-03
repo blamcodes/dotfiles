@@ -22,6 +22,9 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 
+-- Folding
+vim.opt.foldenable = false
+
 -- SEARCH Settings
 vim.opt.ignorecase = true
 vim.opt.hlsearch = true
