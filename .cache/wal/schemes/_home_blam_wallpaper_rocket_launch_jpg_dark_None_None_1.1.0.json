@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/rocket_launch.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#272d43",
+        "foreground": "#d1dce9",
+        "cursor": "#d1dce9"
+    },
+    "colors": {
+        "color0": "#272d43",
+        "color1": "#9B94B2",
+        "color2": "#D1949D",
+        "color3": "#99A3CF",
+        "color4": "#ADB2D5",
+        "color5": "#C7B9D1",
+        "color6": "#B2C2DE",
+        "color7": "#d1dce9",
+        "color8": "#929aa3",
+        "color9": "#9B94B2",
+        "color10": "#D1949D",
+        "color11": "#99A3CF",
+        "color12": "#ADB2D5",
+        "color13": "#C7B9D1",
+        "color14": "#B2C2DE",
+        "color15": "#d1dce9"
+    }
+}

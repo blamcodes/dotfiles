@@ -5,6 +5,7 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
+          "dockerls",
           "lua_ls",
           "ts_ls",
           "jsonls",
@@ -67,31 +68,44 @@ return {
       --          })
       --
 
-      lspconfig.helm_ls.setup({
-        capabilities = capabilities,
-        settings = {
-          logLevel = "info",
-          valuesFile = {
-            mainValuesFile = "values.yaml",
-            lintOverlayValuesFile = "values.lint.yaml",
-            additionalValuesFileGlobPattern = "values*.yaml"
+
+      lspconfig.dockerls.setup {
+          settings = {
+              docker = {
+            languageserver = {
+                formatter = {
+              ignoreMultilineInstructions = true,
           },
-          yamlls = {
-            enabled = true,
-            enabledForFilesGlob = "*.{yaml,yml}",
-            diagnosticLimit = 50,
-            showDiagnosticsDirectly = false,
-            path = "yaml-language-server",
-            config = {
-              schemas = {
-                kubernetes = "templates/**",
-              },
-              completion = true,
-              hover = true,
-            }
-          }
+            },
         }
-      })
+          }
+      }
+
+      -- lspconfig.helm_ls.setup({
+      --   capabilities = capabilities,
+      --   settings = {
+      --     logLevel = "info",
+      --     valuesFile = {
+      --       mainValuesFile = "values.yaml",
+      --       lintOverlayValuesFile = "values.lint.yaml",
+      --       additionalValuesFileGlobPattern = "values*.yaml"
+      --     },
+      --     yamlls = {
+      --       enabled = true,
+      --       enabledForFilesGlob = "*.{yaml,yml}",
+      --       diagnosticLimit = 50,
+      --       showDiagnosticsDirectly = false,
+      --       path = "yaml-language-server",
+      --       config = {
+      --         schemas = {
+      --           kubernetes = "templates/**",
+      --         },
+      --         completion = true,
+      --         hover = true,
+      --       }
+      --     }
+      --   }
+      -- })
 
       -- lspconfig.yamlls.setup({
       -- 	capabilities = capabilities,

@@ -14,7 +14,7 @@ if [[ $# -eq 1 ]]; then
 elif [[ $# -eq 0 ]]; then
   # Explicitly specified 0 in case someone decides to pass more than 1 argument
   # Use 'find' to list directories in specified paths and 'fzf' for interactive selection
-  selected=$(find ~/apps ~/.config -mindepth 1 -maxdepth 1 -type d | fzf)
+  selected=$(find ~/apps -mindepth 1 -maxdepth 1 -type d | fzf)
   # Prime's example below
   # selected=$(find ~/work/builds ~/projects ~/ ~/work ~/personal ~/personal/yt -mindepth 1 -maxdepth 1 -type d | fzf)
 

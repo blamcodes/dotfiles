@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/no-mans-land.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#150d13",
+        "foreground": "#cadedf",
+        "cursor": "#cadedf"
+    },
+    "colors": {
+        "color0": "#150d13",
+        "color1": "#B29258",
+        "color2": "#4C748C",
+        "color3": "#A07789",
+        "color4": "#53AFBB",
+        "color5": "#67A1AD",
+        "color6": "#9EB2B6",
+        "color7": "#cadedf",
+        "color8": "#8d9b9c",
+        "color9": "#B29258",
+        "color10": "#4C748C",
+        "color11": "#A07789",
+        "color12": "#53AFBB",
+        "color13": "#67A1AD",
+        "color14": "#9EB2B6",
+        "color15": "#cadedf"
+    }
+}
