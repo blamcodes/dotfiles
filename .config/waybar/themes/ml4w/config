@@ -12,7 +12,7 @@
   {
       // General Settings
       "layer": "top",
-      "output": "DP-3",
+      "output": "eDP-1",
       "margin-top": 2.5,
       "margin-bottom": -5,
       "margin-left": 5,
@@ -57,7 +57,7 @@
   },
   {
       "layer": "top",
-      "output": "!DP-3",
+      "output": "!eDP-1",
       "margin-top": 2.5,
       "margin-bottom": -5,
       "margin-left": 5,

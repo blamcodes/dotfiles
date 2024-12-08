@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/blam/wallpaper/lion_galaxy_purple.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#0B0A13",
+        "foreground": "#dfc7d9",
+        "cursor": "#dfc7d9"
+    },
+    "colors": {
+        "color0": "#0B0A13",
+        "color1": "#87607A",
+        "color2": "#60388A",
+        "color3": "#6D5292",
+        "color4": "#9E6297",
+        "color5": "#B459B3",
+        "color6": "#7D83BF",
+        "color7": "#dfc7d9",
+        "color8": "#9c8b97",
+        "color9": "#87607A",
+        "color10": "#60388A",
+        "color11": "#6D5292",
+        "color12": "#9E6297",
+        "color13": "#B459B3",
+        "color14": "#7D83BF",
+        "color15": "#dfc7d9"
+    }
+}

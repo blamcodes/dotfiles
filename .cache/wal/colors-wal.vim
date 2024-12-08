@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/blam/wallpaper/lion_galaxy_purple.jpg"
+let background = "#0B0A13"
+let foreground = "#dfc7d9"
+let cursor     = "#dfc7d9"
+
+" Colors
+let color0  = "#0B0A13"
+let color1  = "#87607A"
+let color2  = "#60388A"
+let color3  = "#6D5292"
+let color4  = "#9E6297"
+let color5  = "#B459B3"
+let color6  = "#7D83BF"
+let color7  = "#dfc7d9"
+let color8  = "#9c8b97"
+let color9  = "#87607A"
+let color10 = "#60388A"
+let color11 = "#6D5292"
+let color12 = "#9E6297"
+let color13 = "#B459B3"
+let color14 = "#7D83BF"
+let color15 = "#dfc7d9"
