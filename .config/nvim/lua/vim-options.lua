@@ -7,7 +7,7 @@ vim.g.mapleader = " "
 
 -- File Lines
 vim.wo.relativenumber = true
-vim.opt.wrap = true
+vim.opt.wrap = false
 
 -- INDENT Settings
 vim.opt.smartindent = true
@@ -31,6 +31,10 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.wildignore:append { '*/node_modules/*', '*/vendor/*' }
 
+vim.keymap.set('n', '<leader>q', ":q<CR>", { desc = "Quit"})
+vim.keymap.set('n', '<leader>w', ":w<CR>", { desc = "Write Changes"})
+vim.keymap.set('n', '<leader>bd', ":bdelete<CR>", { desc = "Delete Buffer"})
+
 -- CONTEXTUAL Settings
 vim.opt.title = true
 vim.opt.path:append { '**' }
@@ -45,9 +49,17 @@ vim.cmd("set cursorline")
 -- @see https://tinyurl.com/mvx5u4jy
 vim.opt.fillchars = { eob = ' ' }
 
--- vim.diagnostic.config({
---   virtual_text = false
--- })
+local pattern = '%[(.+)%] (.+): (.+)'
+local severity_map = {
+  ['ERROR'] = vim.diagnostic.severity.ERROR,
+  ['WARNING'] = vim.diagnostic.severity.WARN,
+  ['INFO'] = vim.diagnostic.severity.INFO,
+}
+
+vim.diagnostic.config({
+  virtual_text = false,
+  severity_sort = true
+})
 
 -- The following command requires plug-ins "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", and optionally "kyazdani42/nvim-web-devicons" for icon support
 vim.api.nvim_set_keymap('n', '<leader>dd', '<cmd>Telescope diagnostics<CR>', { noremap = true, silent = true })
@@ -55,10 +67,12 @@ vim.api.nvim_set_keymap('n', '<leader>dd', '<cmd>Telescope diagnostics<CR>', { n
 -- vim.api.nvim_set_keymap('n', '<leader>dd', '<cmd>lua vim.diagnostic.setloclist()<CR>', { noremap = true, silent = true })
 
 -- Show line diagnostics automatically in hover window
-vim.o.updatetime = 500
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+vim.o.updatetime = 800
+-- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, width = 80,  source = 'if_many', scope = 'line', border = 'single' })]]
+vim.keymap.set({'n', 'v'}, '<Leader>dh', function() vim.diagnostic.open_float(nil, {focus=false, width=80, source="if_many", scope="line", border="single"}) end, { silent = true })
 
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })

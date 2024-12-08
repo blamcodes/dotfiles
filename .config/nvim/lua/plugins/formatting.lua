@@ -9,6 +9,7 @@ return {
         javascript = { "prettierd", "prettier", stop_after_first = true },
         lua = { "stylelua" },
         dockerfile = { "stylelua" },
+        cs = { "csharpier"},
       },
       -- format_on_save = function(bufnr)
       --   local ignore_filetypes = { "dockerfile" }
@@ -32,7 +33,7 @@ return {
       -- end
     })
 
-    vim.keymap.set({ "n" }, "<leader>hl", ":0GcLog<CR>")
+
     vim.keymap.set({ "n", "v" }, "<leader>mp", function()
       conform.format({
         lsp_fallback = true,

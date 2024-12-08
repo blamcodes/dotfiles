@@ -19,6 +19,9 @@ return {
         null_ls.builtins.formatting.isort,
 
         null_ls.builtins.formatting.prettier,
+        -- null_ls.builtins.formatting.hadolint,
+        -- null_ls.builtins.formatting.snyk,
+        null_ls.builtins.formatting.trivy,
         -- null_ls.builtins.formatting.yamllint,
 
       },

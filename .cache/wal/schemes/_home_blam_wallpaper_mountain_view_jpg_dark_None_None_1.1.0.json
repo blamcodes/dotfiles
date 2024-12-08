@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/mountain_view.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0b0d0c",
+        "foreground": "#e3dad2",
+        "cursor": "#e3dad2"
+    },
+    "colors": {
+        "color0": "#0b0d0c",
+        "color1": "#936C50",
+        "color2": "#73807F",
+        "color3": "#B38D6B",
+        "color4": "#788687",
+        "color5": "#A29F9B",
+        "color6": "#CAB3A2",
+        "color7": "#e3dad2",
+        "color8": "#9e9893",
+        "color9": "#936C50",
+        "color10": "#73807F",
+        "color11": "#B38D6B",
+        "color12": "#788687",
+        "color13": "#A29F9B",
+        "color14": "#CAB3A2",
+        "color15": "#e3dad2"
+    }
+}

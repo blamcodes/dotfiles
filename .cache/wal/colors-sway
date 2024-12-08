@@ -1,0 +1,21 @@
+set $wallpaper /home/blam/wallpaper/lion_galaxy_purple.jpg
+
+set $background #0B0A13
+set $foreground #dfc7d9
+
+set $color0 #0B0A13
+set $color1 #87607A
+set $color2 #60388A
+set $color3 #6D5292
+set $color4 #9E6297
+set $color5 #B459B3
+set $color6 #7D83BF
+set $color7 #dfc7d9
+set $color8 #9c8b97
+set $color9 #87607A
+set $color10 #60388A
+set $color11 #6D5292
+set $color12 #9E6297
+set $color13 #B459B3
+set $color14 #7D83BF
+set $color15 #dfc7d9
