@@ -34,3 +34,6 @@ done
 if [ -f ~/.zshrc_custom ] ;then
     source ~/.zshrc_custom
 fi
+
+# Created by `pipx` on 2024-12-25 15:45:50
+export PATH="$PATH:/home/bryanl/.local/bin"
