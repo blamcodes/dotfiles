@@ -19,10 +19,29 @@ return {
         build = 'make'
       }
     },
+    keys = {
+      { 
+        '<leader>fb', 
+        function()
+          require('telescope.builtin').buffers({ sort_lastused = true })
+        end
+      }
+    },
     config = function()
       local telescope = require("telescope")
 
       telescope.setup({
+        defaults = {
+          layout_config = {
+            prompt_position = 'top',
+          },
+          sorting_strategy = 'ascending',
+          mappings = {
+            n = {
+              ['d'] = require('telescope.actions').delete_buffer,
+            },
+          },
+        },
         extensions = {
           fzf = {
             fuzzy = true,
@@ -35,7 +54,7 @@ return {
           find_files = {
             find_command = { "fd", "--type", "f", "--strip-cwd-prefix" }
           }
-        }
+        },
       })
 
       telescope.load_extension('fzf')
@@ -47,7 +66,7 @@ return {
       vim.keymap.set('n', '<leader>ff', builtin.git_files, {})
       vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
       vim.keymap.set('n', '<leader>fs', builtin.grep_string, {})
-      vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+      -- vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
       vim.keymap.set('n', '<leader>ft', builtin.treesitter, {})
       vim.keymap.set('n', '<leader>fd', function()
         builtin.lsp_document_symbols({
