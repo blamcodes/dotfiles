@@ -33,24 +33,6 @@ return {
       })
       end
   },
-  -- {
-  --   "gelguy/wilder.nvim",
-  --   config = function()
-  --     local wilder = require("wilder")
-  --     wilder.setup({ modes = { ":", "/", "?" } })
-  --     wilder.set_option(
-  --       "renderer",
-  --       wilder.renderer_mux({
-  --         [":"] = wilder.popupmenu_renderer({
-  --           highlighter = wilder.basic_highlighter(),
-  --         }),
-  --         ["/"] = wilder.popupmenu_renderer({
-  --           highlighter = wilder.basic_highlighter(),
-  --         }),
-  --       })
-  --     )
-  --   end,
-  -- },
   {
     "hrsh7th/cmp-nvim-lsp",
   },
@@ -117,7 +99,7 @@ return {
           -- { name = 'ultisnips' }, -- For ultisnips users.
           -- { name = 'snippy' }, -- For snippy users.
           { name = "nvim_lsp_signature_help" },
-          { name = "easy-dotnent" },
+          { name = "easy-dotnet" },
         }, {
           { name = "buffer" },
         }),
