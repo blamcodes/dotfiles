@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/car_on_mars.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#1a130f",
+        "foreground": "#ded3bc",
+        "cursor": "#ded3bc"
+    },
+    "colors": {
+        "color0": "#1a130f",
+        "color1": "#D5611F",
+        "color2": "#917349",
+        "color3": "#7A8576",
+        "color4": "#AB9467",
+        "color5": "#D89E5C",
+        "color6": "#BEAF89",
+        "color7": "#ded3bc",
+        "color8": "#9b9383",
+        "color9": "#D5611F",
+        "color10": "#917349",
+        "color11": "#7A8576",
+        "color12": "#AB9467",
+        "color13": "#D89E5C",
+        "color14": "#BEAF89",
+        "color15": "#ded3bc"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/fish_2.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#000002",
+        "foreground": "#a6cddf",
+        "cursor": "#a6cddf"
+    },
+    "colors": {
+        "color0": "#000002",
+        "color1": "#97444B",
+        "color2": "#186593",
+        "color3": "#537390",
+        "color4": "#2C8DAA",
+        "color5": "#5D95AA",
+        "color6": "#4DAFD2",
+        "color7": "#a6cddf",
+        "color8": "#748f9c",
+        "color9": "#97444B",
+        "color10": "#186593",
+        "color11": "#537390",
+        "color12": "#2C8DAA",
+        "color13": "#5D95AA",
+        "color14": "#4DAFD2",
+        "color15": "#a6cddf"
+    }
+}
