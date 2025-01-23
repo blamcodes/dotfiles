@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/landscape.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0a0703",
+        "foreground": "#e8cec1",
+        "cursor": "#e8cec1"
+    },
+    "colors": {
+        "color0": "#0a0703",
+        "color1": "#C57A26",
+        "color2": "#946F5C",
+        "color3": "#B28569",
+        "color4": "#DD9A71",
+        "color5": "#6D7F92",
+        "color6": "#748597",
+        "color7": "#e8cec1",
+        "color8": "#a29087",
+        "color9": "#C57A26",
+        "color10": "#946F5C",
+        "color11": "#B28569",
+        "color12": "#DD9A71",
+        "color13": "#6D7F92",
+        "color14": "#748597",
+        "color15": "#e8cec1"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/bloodrock-steppes.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0c0809",
+        "foreground": "#dfcfcc",
+        "cursor": "#dfcfcc"
+    },
+    "colors": {
+        "color0": "#0c0809",
+        "color1": "#9C383F",
+        "color2": "#9F5853",
+        "color3": "#D8675E",
+        "color4": "#F59C70",
+        "color5": "#F0BD77",
+        "color6": "#7F75A0",
+        "color7": "#dfcfcc",
+        "color8": "#9c908e",
+        "color9": "#9C383F",
+        "color10": "#9F5853",
+        "color11": "#D8675E",
+        "color12": "#F59C70",
+        "color13": "#F0BD77",
+        "color14": "#7F75A0",
+        "color15": "#dfcfcc"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/adwaita-l.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0B0309",
+        "foreground": "#e4c092",
+        "cursor": "#e4c092"
+    },
+    "colors": {
+        "color0": "#0B0309",
+        "color1": "#3D426B",
+        "color2": "#4F446D",
+        "color3": "#942D31",
+        "color4": "#CA5C3E",
+        "color5": "#8F394B",
+        "color6": "#A4494F",
+        "color7": "#e4c092",
+        "color8": "#9f8666",
+        "color9": "#3D426B",
+        "color10": "#4F446D",
+        "color11": "#942D31",
+        "color12": "#CA5C3E",
+        "color13": "#8F394B",
+        "color14": "#A4494F",
+        "color15": "#e4c092"
+    }
+}

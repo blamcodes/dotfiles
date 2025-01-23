@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/apple-waves1.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#190507",
+        "foreground": "#9fbdd1",
+        "cursor": "#9fbdd1"
+    },
+    "colors": {
+        "color0": "#190507",
+        "color1": "#53447B",
+        "color2": "#9A2F31",
+        "color3": "#94344F",
+        "color4": "#5B3E86",
+        "color5": "#4F5A9B",
+        "color6": "#925AD4",
+        "color7": "#9fbdd1",
+        "color8": "#6f8492",
+        "color9": "#53447B",
+        "color10": "#9A2F31",
+        "color11": "#94344F",
+        "color12": "#5B3E86",
+        "color13": "#4F5A9B",
+        "color14": "#925AD4",
+        "color15": "#9fbdd1"
+    }
+}

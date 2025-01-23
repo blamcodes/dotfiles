@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/catching-the-desert.jpeg",
+    "alpha": "100",
+    "special": {
+        "background": "#111213",
+        "foreground": "#cdd0bd",
+        "cursor": "#cdd0bd"
+    },
+    "colors": {
+        "color0": "#111213",
+        "color1": "#EEA856",
+        "color2": "#EDB56B",
+        "color3": "#F4C776",
+        "color4": "#227992",
+        "color5": "#318996",
+        "color6": "#539794",
+        "color7": "#cdd0bd",
+        "color8": "#8f9184",
+        "color9": "#EEA856",
+        "color10": "#EDB56B",
+        "color11": "#F4C776",
+        "color12": "#227992",
+        "color13": "#318996",
+        "color14": "#539794",
+        "color15": "#cdd0bd"
+    }
+}

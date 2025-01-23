@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/mountain-winter3.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#091016",
+        "foreground": "#e0dacd",
+        "cursor": "#e0dacd"
+    },
+    "colors": {
+        "color0": "#091016",
+        "color1": "#4F6F90",
+        "color2": "#5D7A9B",
+        "color3": "#698FAF",
+        "color4": "#74ADCA",
+        "color5": "#7EC0D9",
+        "color6": "#94A0A8",
+        "color7": "#e0dacd",
+        "color8": "#9c988f",
+        "color9": "#4F6F90",
+        "color10": "#5D7A9B",
+        "color11": "#698FAF",
+        "color12": "#74ADCA",
+        "color13": "#7EC0D9",
+        "color14": "#94A0A8",
+        "color15": "#e0dacd"
+    }
+}
