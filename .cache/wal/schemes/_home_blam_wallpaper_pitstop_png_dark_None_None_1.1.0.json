@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/pitstop.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0e0d10",
+        "foreground": "#afc2c9",
+        "cursor": "#afc2c9"
+    },
+    "colors": {
+        "color0": "#0e0d10",
+        "color1": "#64626C",
+        "color2": "#966B65",
+        "color3": "#CD5646",
+        "color4": "#CE9165",
+        "color5": "#6D6B84",
+        "color6": "#A0738A",
+        "color7": "#afc2c9",
+        "color8": "#7a878c",
+        "color9": "#64626C",
+        "color10": "#966B65",
+        "color11": "#CD5646",
+        "color12": "#CE9165",
+        "color13": "#6D6B84",
+        "color14": "#A0738A",
+        "color15": "#afc2c9"
+    }
+}

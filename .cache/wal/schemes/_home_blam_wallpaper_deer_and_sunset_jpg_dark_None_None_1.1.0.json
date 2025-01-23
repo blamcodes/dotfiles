@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/deer_and_sunset.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#090610",
+        "foreground": "#e7be9c",
+        "cursor": "#e7be9c"
+    },
+    "colors": {
+        "color0": "#090610",
+        "color1": "#533148",
+        "color2": "#6E4A64",
+        "color3": "#8E443B",
+        "color4": "#A05C59",
+        "color5": "#C87854",
+        "color6": "#EE9C39",
+        "color7": "#e7be9c",
+        "color8": "#a1856d",
+        "color9": "#533148",
+        "color10": "#6E4A64",
+        "color11": "#8E443B",
+        "color12": "#A05C59",
+        "color13": "#C87854",
+        "color14": "#EE9C39",
+        "color15": "#e7be9c"
+    }
+}

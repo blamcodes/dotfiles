@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/tron_legacy5.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#000000",
+        "foreground": "#eaa37e",
+        "cursor": "#eaa37e"
+    },
+    "colors": {
+        "color0": "#000000",
+        "color1": "#1B334D",
+        "color2": "#25354E",
+        "color3": "#23486A",
+        "color4": "#5F4952",
+        "color5": "#983313",
+        "color6": "#B14419",
+        "color7": "#eaa37e",
+        "color8": "#a37258",
+        "color9": "#1B334D",
+        "color10": "#25354E",
+        "color11": "#23486A",
+        "color12": "#5F4952",
+        "color13": "#983313",
+        "color14": "#B14419",
+        "color15": "#eaa37e"
+    }
+}

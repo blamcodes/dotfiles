@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/plasmawaves.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0C2038",
+        "foreground": "#edc2be",
+        "cursor": "#edc2be"
+    },
+    "colors": {
+        "color0": "#0C2038",
+        "color1": "#C47471",
+        "color2": "#AE8F7C",
+        "color3": "#365F89",
+        "color4": "#656087",
+        "color5": "#986789",
+        "color6": "#D8738F",
+        "color7": "#edc2be",
+        "color8": "#a58785",
+        "color9": "#C47471",
+        "color10": "#AE8F7C",
+        "color11": "#365F89",
+        "color12": "#656087",
+        "color13": "#986789",
+        "color14": "#D8738F",
+        "color15": "#edc2be"
+    }
+}

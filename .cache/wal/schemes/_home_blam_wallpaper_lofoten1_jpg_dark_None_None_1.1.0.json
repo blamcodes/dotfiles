@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/lofoten1.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#130914",
+        "foreground": "#e6e4cb",
+        "cursor": "#e6e4cb"
+    },
+    "colors": {
+        "color0": "#130914",
+        "color1": "#2A588E",
+        "color2": "#5D6D8D",
+        "color3": "#69959B",
+        "color4": "#5FAAA3",
+        "color5": "#9BA39E",
+        "color6": "#A8D0B0",
+        "color7": "#e6e4cb",
+        "color8": "#a19f8e",
+        "color9": "#2A588E",
+        "color10": "#5D6D8D",
+        "color11": "#69959B",
+        "color12": "#5FAAA3",
+        "color13": "#9BA39E",
+        "color14": "#A8D0B0",
+        "color15": "#e6e4cb"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/night_city.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0F1217",
+        "foreground": "#c5bbbf",
+        "cursor": "#c5bbbf"
+    },
+    "colors": {
+        "color0": "#0F1217",
+        "color1": "#4A5365",
+        "color2": "#843D43",
+        "color3": "#9E555E",
+        "color4": "#DB5F64",
+        "color5": "#EA6468",
+        "color6": "#B7729A",
+        "color7": "#c5bbbf",
+        "color8": "#898285",
+        "color9": "#4A5365",
+        "color10": "#843D43",
+        "color11": "#9E555E",
+        "color12": "#DB5F64",
+        "color13": "#EA6468",
+        "color14": "#B7729A",
+        "color15": "#c5bbbf"
+    }
+}

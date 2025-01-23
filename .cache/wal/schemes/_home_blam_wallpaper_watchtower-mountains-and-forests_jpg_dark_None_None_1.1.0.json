@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/watchtower-mountains-and-forests.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#040915",
+        "foreground": "#9dd1e8",
+        "cursor": "#9dd1e8"
+    },
+    "colors": {
+        "color0": "#040915",
+        "color1": "#2469AC",
+        "color2": "#5A5D9B",
+        "color3": "#416CB5",
+        "color4": "#936F88",
+        "color5": "#219AD4",
+        "color6": "#1AB6E6",
+        "color7": "#9dd1e8",
+        "color8": "#6d92a2",
+        "color9": "#2469AC",
+        "color10": "#5A5D9B",
+        "color11": "#416CB5",
+        "color12": "#936F88",
+        "color13": "#219AD4",
+        "color14": "#1AB6E6",
+        "color15": "#9dd1e8"
+    }
+}

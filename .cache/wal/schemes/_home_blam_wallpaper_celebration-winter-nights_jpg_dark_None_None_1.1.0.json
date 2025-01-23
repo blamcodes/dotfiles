@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/celebration-winter-nights.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#110c1b",
+        "foreground": "#c5dcd1",
+        "cursor": "#c5dcd1"
+    },
+    "colors": {
+        "color0": "#110c1b",
+        "color1": "#2F6193",
+        "color2": "#4A4798",
+        "color3": "#845E88",
+        "color4": "#61A1A3",
+        "color5": "#46B5C2",
+        "color6": "#B2BEA6",
+        "color7": "#c5dcd1",
+        "color8": "#899a92",
+        "color9": "#2F6193",
+        "color10": "#4A4798",
+        "color11": "#845E88",
+        "color12": "#61A1A3",
+        "color13": "#46B5C2",
+        "color14": "#B2BEA6",
+        "color15": "#c5dcd1"
+    }
+}

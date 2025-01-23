@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/blam/wallpaper/dark-star.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0D0D16",
+        "foreground": "#abe1f4",
+        "cursor": "#abe1f4"
+    },
+    "colors": {
+        "color0": "#0D0D16",
+        "color1": "#304A6E",
+        "color2": "#CC2233",
+        "color3": "#40669B",
+        "color4": "#CB6D92",
+        "color5": "#568BB6",
+        "color6": "#55A3ED",
+        "color7": "#abe1f4",
+        "color8": "#779daa",
+        "color9": "#304A6E",
+        "color10": "#CC2233",
+        "color11": "#40669B",
+        "color12": "#CB6D92",
+        "color13": "#568BB6",
+        "color14": "#55A3ED",
+        "color15": "#abe1f4"
+    }
+}
