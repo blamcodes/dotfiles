@@ -1,3 +1,4 @@
 return {
-  'dfendr/clipboard-image.nvim'
+    'dfendr/clipboard-image.nvim',
+    enabled = false,
 }
