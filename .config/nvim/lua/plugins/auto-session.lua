@@ -1,8 +1,11 @@
 return {
-    'rmagatti/auto-session',
-    lazy = false,
-    opts = {
-        suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
-        -- log_level = 'debug',
-    }
+    {
+        'echasnovski/mini.sessions',
+        version = false,
+        config = function()
+            require('mini.sessions').setup({
+                autoread = false,
+            })
+        end
+    },
 }
