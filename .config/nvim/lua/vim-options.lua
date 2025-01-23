@@ -62,15 +62,12 @@ vim.diagnostic.config({
 })
 
 -- The following command requires plug-ins "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", and optionally "kyazdani42/nvim-web-devicons" for icon support
-vim.api.nvim_set_keymap('n', '<leader>dd', '<cmd>Telescope diagnostics<CR>', { noremap = true, silent = true })
+
 -- If you don't want to use the telescope plug-in but still want to see all the errors/warnings, comment out the telescope line and uncomment this:
 -- vim.api.nvim_set_keymap('n', '<leader>dd', '<cmd>lua vim.diagnostic.setloclist()<CR>', { noremap = true, silent = true })
 
 -- Show line diagnostics automatically in hover window
 vim.o.updatetime = 800
--- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, width = 80,  source = 'if_many', scope = 'line', border = 'single' })]]
-vim.keymap.set({'n', 'v'}, '<Leader>dh', function() vim.diagnostic.open_float(nil, {focus=false, width=80, source="if_many", scope="line", border="single"}) end, { silent = true })
-
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
@@ -80,5 +77,9 @@ end
 
 -- Session
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+-- Global Keybinds
+vim.keymap.set({'n', 'v'}, '<Leader>dh', function() vim.diagnostic.open_float(nil, {focus=false, width=80, source="if_many", scope="line", border="single"}) end, { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>dd', '<cmd>FzfLua diagnostics_workspace<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { noremap = true, silent = true })
