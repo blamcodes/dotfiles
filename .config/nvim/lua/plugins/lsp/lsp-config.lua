@@ -9,10 +9,10 @@ return {
           "lua_ls",
           "ts_ls",
           "jsonls",
-          "jdtls",
-          "helm_ls",
+          -- "jdtls",
+          -- "helm_ls",
           "yamlls",
-          "phpactor",
+          -- "phpactor",
           "eslint",
         },
       })
@@ -45,23 +45,23 @@ return {
       -- lspconfig.jedi_language_server.setup({
       -- 	capabilities = capabilities,
       -- })
-      lspconfig.pyright.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.clangd.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.dockerls.setup({
-        capabilities = capabilities,
-      })
+      -- lspconfig.pyright.setup({
+      --   capabilities = capabilities,
+      -- })
+      -- lspconfig.clangd.setup({
+      --   capabilities = capabilities,
+      -- })
+      -- lspconfig.dockerls.setup({
+      --   capabilities = capabilities,
+      -- })
 
       lspconfig.jsonls.setup({
         capabilities = capabilities,
       })
 
-      lspconfig.phpactor.setup({
-        capabilities = capabilities,
-      })
+      -- lspconfig.phpactor.setup({
+      --   capabilities = capabilities,
+      -- })
       --
       --          lspconfig.jinja_lsp.setup({
       -- 	capabilities = capabilities,
