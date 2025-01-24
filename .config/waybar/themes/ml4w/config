@@ -12,7 +12,6 @@
   {
       // General Settings
       "layer": "top",
-      "output": "eDP-1",
       "margin-top": 2.5,
       "margin-bottom": -5,
       "margin-left": 5,
@@ -54,27 +53,5 @@
           "group/settings",
           "custom/exit",
       ],
-  },
-  {
-      "layer": "top",
-      "output": "!eDP-1",
-      "margin-top": 2.5,
-      "margin-bottom": -5,
-      "margin-left": 5,
-      "margin-right": 14,    
-      "spacing": 0,
-
-      // Load Modules
-      "include": [
-          "~/.config/ml4w/settings/waybar-quicklinks.json",
-          "~/.config/waybar/modules.json"
-      ],
-      "modules-left": [
-        "hyprland/workspaces",
-      ],
-      "modules-center": [
-        "clock"
-      ],
-
   }
 ]
