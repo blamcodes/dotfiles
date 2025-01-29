@@ -60,24 +60,24 @@ return {
       telescope.load_extension('fzf')
       -- telescope.load_extension("noice")
 
-      local builtin = require("telescope.builtin")
+      -- local builtin = require("telescope.builtin")
 
-      vim.keymap.set('n', '<leader>p', builtin.find_files, {})
-      vim.keymap.set('n', '<leader>ff', builtin.git_files, {})
-      vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-      vim.keymap.set('n', '<leader>fs', builtin.grep_string, {})
-      -- vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-      vim.keymap.set('n', '<leader>ft', builtin.treesitter, {})
-      vim.keymap.set('n', '<leader>fd', function()
-        builtin.lsp_document_symbols({
-          symbols = { 'function', 'method', 'variable' }
-        })
-      end, {})
-      vim.keymap.set('n', '<leader>fw', function()
-        builtin.lsp_workspace_symbols({
-          symbols = { 'function', 'class' }
-        })
-      end, {})
+      -- vim.keymap.set('n', '<leader>p', builtin.find_files, {})
+      -- vim.keymap.set('n', '<leader>ff', builtin.git_files, {})
+      -- vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+      -- vim.keymap.set('n', '<leader>fs', builtin.grep_string, {})
+      -- -- vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+      -- vim.keymap.set('n', '<leader>ft', builtin.treesitter, {})
+      -- vim.keymap.set('n', '<leader>fd', function()
+      --   builtin.lsp_document_symbols({
+      --     symbols = { 'function', 'method', 'variable' }
+      --   })
+      -- end, {})
+      -- vim.keymap.set('n', '<leader>fw', function()
+      --   builtin.lsp_workspace_symbols({
+      --     symbols = { 'function', 'class' }
+      --   })
+      -- end, {})
     end
   },
   {
