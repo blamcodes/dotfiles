@@ -65,7 +65,7 @@
     },
     {
         "key": "decoration:blur:brightness",
-        "value": 0.4
+        "value": 0.6
     },
     {
         "key": "decoration:blur:vibrancy",
@@ -94,5 +94,9 @@
     {
         "key": "decoration:blur:vibrancy_darkness",
         "value": 0.0
+    },
+    {
+        "key": "decoration:active_opacity",
+        "value": 1.0
     }
 ]
