@@ -1,6 +1,8 @@
 -- Neovim Base
 vim.opt.termguicolors = true
 -- vim.opt.signcolumn = 'yes'
+--
+vim.o.conceallevel = 1
 
 -- Leader Key
 vim.g.mapleader = " "
