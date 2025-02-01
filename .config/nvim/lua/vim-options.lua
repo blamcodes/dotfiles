@@ -36,6 +36,8 @@ vim.opt.wildignore:append { '*/node_modules/*', '*/vendor/*' }
 vim.keymap.set('n', '<leader>q', ":q<CR>", { desc = "Quit"})
 vim.keymap.set('n', '<leader>w', ":w<CR>", { desc = "Write Changes"})
 vim.keymap.set('n', '<leader>bd', ":bdelete<CR>", { desc = "Delete Buffer"})
+-- Delete all buffers (%bd) and open last buffer for editing (e#)
+vim.keymap.set('n', '<leader>bA', ":%bd|e#<CR>", { desc = "Delete All Buffers and Open Last Buffer For Editing"})
 
 -- CONTEXTUAL Settings
 vim.opt.title = true
