@@ -1,0 +1,112 @@
+-- install with yarn or npm
+return { -- For `plugins.lua` users.
+  {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
+
+    ft = { "markdown", "markdown_inline"},
+    -- For `nvim-treesitter` users.
+    priority = 49,
+    opts = {
+      preview = {
+        filetypes = { "markdown", "codecompanion", "markdown_inline", "mcphub" },
+        ignore_buftypes = {},
+      },
+      --@type markview.config.html.container_elements
+      container_elements = {
+        enable = true,
+
+        ["^a$"] = {
+          on_opening_tag = { conceal = "", virt_text_pos = "inline", virt_text = { { "", "MarkviewHyperlink" } } },
+          on_node = { hl_group = "MarkviewHyperlink" },
+          on_closing_tag = { conceal = "" },
+        },
+        ["^b$"] = {
+          on_opening_tag = { conceal = "" },
+          on_node = { hl_group = "Bold" },
+          on_closing_tag = { conceal = "" },
+        },
+        ["^code$"] = {
+          on_opening_tag = { conceal = "", hl_mode = "combine", virt_text_pos = "inline", virt_text = { { " ", "MarkviewInlineCode" } } },
+          on_node = { hl_group = "MarkviewInlineCode" },
+          on_closing_tag = { conceal = "", hl_mode = "combine", virt_text_pos = "inline", virt_text = { { " ", "MarkviewInlineCode" } } },
+        },
+        ["^em$"] = {
+          on_opening_tag = { conceal = "" },
+          on_node = { hl_group = "@text.emphasis" },
+          on_closing_tag = { conceal = "" },
+        },
+        ["^i$"] = {
+          on_opening_tag = { conceal = "" },
+          on_node = { hl_group = "Italic" },
+          on_closing_tag = { conceal = "" },
+        },
+        ["^mark$"] = {
+          on_opening_tag = { conceal = "" },
+          on_node = { hl_group = "MarkviewPalette1" },
+          on_closing_tag = { conceal = "" },
+        },
+        ["^pre$"] = {
+          on_opening_tag = { conceal = "" },
+          on_node = { hl_group = "Special" },
+          on_closing_tag = { conceal = "" },
+        },
+        ["^strong$"] = {
+          on_opening_tag = { conceal = "" },
+          on_node = { hl_group = "@text.strong" },
+          on_closing_tag = { conceal = "" },
+        },
+        ["^sub$"] = {
+          on_opening_tag = { conceal = "", hl_mode = "combine", virt_text_pos = "inline", virt_text = { { "↓[", "MarkviewSubscript" } } },
+          on_node = { hl_group = "MarkviewSubscript" },
+          on_closing_tag = { conceal = "", hl_mode = "combine", virt_text_pos = "inline", virt_text = { { "]", "MarkviewSubscript" } } },
+        },
+        ["^sup$"] = {
+          on_opening_tag = { conceal = "", hl_mode = "combine", virt_text_pos = "inline", virt_text = { { "↑[", "MarkviewSuperscript" } } },
+          on_node = { hl_group = "MarkviewSuperscript" },
+          on_closing_tag = { conceal = "", hl_mode = "combine", virt_text_pos = "inline", virt_text = { { "]", "MarkviewSuperscript" } } },
+        },
+        ["^u$"] = {
+          on_opening_tag = { conceal = "" },
+          on_node = { hl_group = "Underlined" },
+          on_closing_tag = { conceal = "" },
+        },
+      },
+
+      -- For blink.cmp's completion
+      -- source
+      -- dependencies = {
+      --     "saghen/blink.cmp"
+      -- },
+      }
+    },
+  -- {
+  --   'MeanderingProgrammer/render-markdown.nvim',
+  --   -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+  --   dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+  --   -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },   -- if you prefer nvim-web-devicons
+  --   ft = {
+  --     "markdown", "codecompanion"
+  --   },
+  --   event = "VeryLazy",
+  --
+  --   ---@module 'render-markdown'
+  --   ---@type render.md.UserConfig
+  --   opts = {
+  --     file_types = { 'markdown', 'conf', "codecompanion" }
+  --   },
+  --   config = function()
+  --     require('render-markdown').setup({
+  --     })
+  --   end
+  -- },
+  -- {
+  --   "iamcco/markdown-preview.nvim",
+  --   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+  --   build = "cd app && yarn install",
+  --   init = function()
+  --     vim.g.mkdp_filetypes = { "markdown" }
+  --   end,
+  --   ft = { "markdown" },
+  -- }
+}

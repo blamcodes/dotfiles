@@ -1,0 +1,4 @@
+.tmux/plugins/*
+.config/ml4w/cache/*
+/.cache/*
+
