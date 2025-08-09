@@ -46,7 +46,7 @@
           //"backlight",
           "bluetooth",
           "battery", 
-          "network",
+        "network",
 
           "group/tools",
           "tray",
