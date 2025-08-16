@@ -14,13 +14,13 @@ return {
           YAMLFIX_SEQUENCE_STYLE = "block_style",
         },
       },
-      eslint = {
-        on_init = function(client)
-          client.config.settings.workingDirectory = { directory = client.config.root_dir }
-        end,
-      },
+      -- eslint = {
+      --   on_init = function(client)
+      --     client.config.settings.workingDirectory = { directory = client.config.root_dir }
+      --   end,
+      -- },
       formatters_by_ft = {
-        javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { "vtsls", "prettierd", "prettier", stop_after_first = true },
         -- lua = { "stylelua" },
         -- dockerfile = { "stylelua" },
         cs = { "csharpier" },

@@ -72,45 +72,44 @@ return {
     dependencies = {
       "nvim-neotest/nvim-nio",
       "rcarriga/nvim-dap-ui",
+      -- lazy spec to build "microsoft/vscode-js-debug" from source
+      {
+        "microsoft/vscode-js-debug",
+        version = "1.x",
+        build = "npm i && npm run compile vsDebugServerBundle && mv dist out"
+      }
     },
     config = function()
       local dap = require("dap")
       local dapui = require("dapui")
 
-      require("dap-vscode-js").setup({
-        -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
-        debugger_path = "/home/blam/vscode-js-debug",
-        -- debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
-        adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
-        -- log_file_path = "(stdpath cache)/dap_vscode_js.log" -- Path for file logging
-        -- log_file_level = false -- Logging level for output to file. Set to false to disable file logging.
-        -- log_console_level = vim.log.levels.ERROR -- Logging level for output to console. Set to false to disable console output.
-      })
-
-      -- dap.adapters["pwa-node"] = {
-      --   type = "server",
-      --   host = "localhost",
-      --   port = 9229,
-      --   -- executable = {
-      --   --   command = vim.fs.joinpath(
-      --   --       vim.fn.stdpath 'data' --[[@as string]],
-      --   --       'mason',
-      --   --       'packages',
-      --   --       'js-debug-adapter',
-      --   --       'js-debug-adapter'
-      --   --     ),
-      --   --   args = { 9229 },
-      --   -- }
-      -- }
-      for _, language in ipairs { "typescript", "javascript" } do
+      dap.adapters["pwa-chrome"] = {
+        type = "server",
+        host = "localhost",
+        port = 9229,
+        executable = {
+          command = "node",
+          args = {
+            vim.fn.stdpath("data") .. "/lazy/vscode-js-debug/out/src/vsDebugServer.js",
+            9229
+          },
+        }
+      }
+      for _, language in ipairs { "typescript", "javascript", "vue" } do
         dap.configurations[language] = {
           {
+            -- use nvim-dap-vscode-js's pwa-chrome debug adapter
             type = "pwa-chrome",
             request = "launch",
-            name = "Launch Chrome",
-            url = "http://localhost:3000",
-            sourceMaps = true,
-
+            -- name of the debug action
+            name = "Launch Chrome to debug client side code",
+            -- default vite dev server url
+            url = "localhost:5000",
+            -- for TypeScript/Svelte
+            -- sourceMaps = true,
+            webRoot = "${workspaceFolder}",
+            -- protocol = "inspector",
+            port = 9222,
           },
           {
             type = "pwa-node",

@@ -85,14 +85,14 @@ return {
           --     }
           --   },
           -- },
-          -- mcphub = {
-          --   callback = "mcphub.extensions.codecompanion",
-          --   opts = {
-          --     make_vars = true,
-          --     make_slash_commands = true,
-          --     show_result_in_chat = false
-          --   },
-          -- },
+          mcphub = {
+            callback = "mcphub.extensions.codecompanion",
+            opts = {
+              make_vars = true,
+              make_slash_commands = true,
+              show_result_in_chat = false
+            },
+          },
           -- history = {
           --   enabled = true,
           --   opts = {
@@ -181,7 +181,7 @@ return {
           chat = {
             adapter = {
               name = "copilot",
-              model = "claude-3.7-sonnet",
+              model = "gpt-4o",
             },
             slash_commands = {
               ["buffer"] = {

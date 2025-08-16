@@ -1,5 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
+  enabled = false,
   config = function()
     local treesitter = require('nvim-treesitter')
     local function treelocation()

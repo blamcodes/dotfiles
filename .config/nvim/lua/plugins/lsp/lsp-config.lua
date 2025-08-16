@@ -16,6 +16,7 @@ return {
           -- "phpactor",
           -- "eslint",
           -- "postgrestools"
+          "vtsls"
         },
       })
     end,
@@ -26,51 +27,42 @@ return {
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-      -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      -- local lspconfig = require("lspconfig")
-
       local vue_language_server_path = "/usr/lib/node_modules/@vue/language-server"
-      local ts_ls_config = {
-        init_options = {
-          plugins = {
-            {
-              name = '@vue/typescript-plugin',
-              location = vue_language_server_path,
-              languages = { 'vue' },
+      -- local vue_language_server_path = vim.fn.expand '$MASON/packages' .. 'vue-language-server'
+      local vue_plugin = {
+        name = '@vue/typescript-plugin',
+        location = vue_language_server_path,
+        languages = { 'vue' },
+        configNamespace = 'typescript',
+      }
+
+      vim.lsp.config('vtsls', {
+        settings = {
+          vtsls = {
+            enableEslint = true,
+            eslint = {
+              enabled = true,
+              run = "onSave",
+            },
+            -- autoUseWorkspaceTsdk = true,
+            tsserver = {
+              globalPlugins = {
+                vue_plugin,
+              },
             },
           },
         },
+
         filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-      }
+      })
 
-      -- No need to set `hybridMode` to `true` as it's the default value
-      local vue_ls_config = {}
-
-      vim.lsp.config("ts_ls", ts_ls_config)
-      vim.lsp.config("vue_ls", vue_ls_config)
-      vim.lsp.enable({"ts_ls", "vue_ls_config"})
+      -- vim.lsp.config('vue_ls', {})
       --
+      -- vim.lsp.enable('vue_ls')
+      vim.lsp.enable('vtsls')
+
       -- lspconfig.postgrestools.setup({
       --   capabilties = capabilities,
-      -- })
-
-      local eslint_config = {
-        settings = {
-          experimental = {
-            useFlatConfig = false
-          }
-        }
-      }
-      vim.lsp.config("eslint", eslint_config)
-      vim.lsp.enable({"eslint", "eslint_config"})
-      -- lspconfig.eslint.setup({
-      --     capabilties = capabilities,
-      --     on_attach = function(client, bufnr)
-      --         vim.api.nvim_create_autocmd("BufWritePre", {
-      --             buffer = bufnr,
-      --             command = "EslintFixAll",
-      --         })
-      --     end,
       -- })
 
       -- lspconfig.jedi_language_server.setup({
@@ -146,8 +138,33 @@ return {
       -- vim.lsp.enable('dartls')
 
       vim.keymap.set("n", "<S-k>", vim.lsp.buf.hover, {})
-      vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+      vim.keymap.set({ "n", "v" }, "<leader>ca",
+        function() vim.lsp.buf.code_action({ context = { only = { "source" } } }) end, {})
       vim.keymap.set({ "n" }, "<leader>rn", vim.lsp.buf.rename, {})
+      vim.keymap.set(
+        "n",
+        "<leader>co",
+        function()
+          vim.lsp.buf.code_action({ context = { only = { "source.organizeImports" } }, apply = true })
+        end,
+        { desc = "Organize imports" }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>cM",
+        function()
+          vim.lsp.buf.code_action({ context = { only = { "source.addMissingImports.ts" } }, apply = true })
+        end,
+        { desc = "Add missing imports" }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>cu",
+        function()
+          vim.lsp.buf.code_action({ context = { only = { "source.addMissingImports.ts" } }, apply = true })
+        end,
+        { desc = "Remove unused imports" }
+      )
     end,
   },
 }

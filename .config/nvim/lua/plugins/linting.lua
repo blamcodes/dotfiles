@@ -7,18 +7,18 @@ return {
   opts = {
     -- other config
     linters = {
-      eslint_d = {
-        args = {
-          '--no-warn-ignored', -- <-- this is the key argument
-          '--format',
-          'json',
-          '--stdin',
-          '--stdin-filename',
-          function()
-            return vim.api.nvim_buf_get_name(0)
-          end,
-        },
-      },
+      -- eslint_d = {
+      --   args = {
+      --     '--no-warn-ignored', -- <-- this is the key argument
+      --     '--format',
+      --     'json',
+      --     '--stdin',
+      --     '--stdin-filename',
+      --     function()
+      --       return vim.api.nvim_buf_get_name(0)
+      --     end,
+      --   },
+      -- },
     },
   },
   config = function()
@@ -69,11 +69,11 @@ return {
     -- }
 
     lint.linters_by_ft = {
-      javascript = { "eslint_d" },
-      typescript = { "eslint_d" },
-      vue = { "eslint_d" },
-      javascriptreact = { "eslint_d" },
-      typescriptreact = { "eslint_d" },
+      -- javascript = { "eslint_d" },
+      -- typescript = { "eslint_d" },
+      -- vue = { "eslint_d" },
+      -- javascriptreact = { "eslint_d" },
+      -- typescriptreact = { "eslint_d" },
       Dockerfile = { "hadolint", "snyk_iac", "trivy" },
       -- svelte = { "eslint_d" },
       -- python = { "pylint" },
