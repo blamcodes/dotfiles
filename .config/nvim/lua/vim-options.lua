@@ -1,7 +1,5 @@
 -- Neovim Base
 vim.opt.termguicolors = true
--- vim.opt.signcolumn = 'yes'
---
 vim.o.conceallevel = 2
 
 -- Leader Key
@@ -38,6 +36,9 @@ vim.keymap.set('n', '<leader>w', ":w<CR>", { desc = "Write Changes"})
 vim.keymap.set('n', '<leader>bd', ":bdelete<CR>", { desc = "Delete Buffer"})
 -- Delete all buffers (%bd) and open last buffer for editing (e#)
 vim.keymap.set('n', '<leader>bA', ":%bd|e#<CR>", { desc = "Delete All Buffers and Open Last Buffer For Editing"})
+
+-- Terminal mode keybinds
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = "Exit terminal mode" })
 
 -- CONTEXTUAL Settings
 vim.opt.title = true
