@@ -102,9 +102,11 @@ return {
           statuscolumn = { enabled = false },
           input = { enabled = true },
           image = {
+            enabled = true,
             doc = {
               conceal = function(lang, type)
-                return type == "math" or type == "image"
+                -- vim.notify(type)
+                return type == 'math' or type == 'image'  or type == 'chart'
               end
             }
           },
@@ -151,7 +153,7 @@ return {
               ignorecase = true,     -- use ignorecase
               sort_empty = false,    -- sort results when the search string is empty
               filename_bonus = true, -- give bonus for matching file names (last part of the path)
-              file_pos = true,       -- support patterns like `file:line:col` and `file:line`
+              file_pos = false,       -- support patterns like `file:line:col` and `file:line`
               -- the bonusses below, possibly require string concatenation and path normalization,
               -- so this can have a performance impact for large lists and increase memory usage
               cwd_bonus = true,      -- give bonus for matching files in the cwd

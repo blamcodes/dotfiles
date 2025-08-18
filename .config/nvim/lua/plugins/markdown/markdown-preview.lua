@@ -3,14 +3,16 @@ return { -- For `plugins.lua` users.
   {
     "OXY2DEV/markview.nvim",
     lazy = false,
-
-    ft = { "markdown", "markdown_inline"},
+    ft = { "markdown", "markdown_inline" },
     -- For `nvim-treesitter` users.
     priority = 49,
     opts = {
       preview = {
         filetypes = { "markdown", "codecompanion", "markdown_inline", "mcphub" },
         ignore_buftypes = {},
+      },
+      latex = {
+        enable = false
       },
       --@type markview.config.html.container_elements
       container_elements = {
@@ -78,35 +80,18 @@ return { -- For `plugins.lua` users.
       -- dependencies = {
       --     "saghen/blink.cmp"
       -- },
-      }
-    },
+    }
+  },
   -- {
-  --   'MeanderingProgrammer/render-markdown.nvim',
-  --   -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-  --   dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-  --   -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },   -- if you prefer nvim-web-devicons
-  --   ft = {
-  --     "markdown", "codecompanion"
-  --   },
-  --   event = "VeryLazy",
+  --   "3rd/diagram.nvim",
+  --   dependencies = {
+  --     "3rd/image.nvim",
+  --     build = false,
+  --     opts = {
+  --       processor = "magick_cli",
   --
-  --   ---@module 'render-markdown'
-  --   ---@type render.md.UserConfig
-  --   opts = {
-  --     file_types = { 'markdown', 'conf', "codecompanion" }
+  --     }
   --   },
-  --   config = function()
-  --     require('render-markdown').setup({
-  --     })
-  --   end
-  -- },
-  -- {
-  --   "iamcco/markdown-preview.nvim",
-  --   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-  --   build = "cd app && yarn install",
-  --   init = function()
-  --     vim.g.mkdp_filetypes = { "markdown" }
-  --   end,
-  --   ft = { "markdown" },
+  --   opts = {},
   -- }
 }
