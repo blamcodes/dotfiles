@@ -34,3 +34,10 @@ done
 if [ -f ~/.zshrc_custom ]; then
     source ~/.zshrc_custom
 fi
+
+# bun completions
+[ -s "/home/blam/.oh-my-zsh/completions/_bun" ] && source "/home/blam/.oh-my-zsh/completions/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
