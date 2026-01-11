@@ -7,14 +7,17 @@ return {
     config = function()
       require("easy-dotnet").setup({
         --Optional function to return the path for the dotnet sdk (e.g C:/ProgramFiles/dotnet/sdk/8.0.0)
+        lsp = {
+          enabled = false,
+        },
         get_sdk_path = function()
-          return '/usr/share/dotnet/sdk/8.0.412'
+          return '/usr/share/dotnet/sdk/9.0.306'
         end,
         test_runner = {
           ---@type "split" | "float" | "buf"
           viewmode = "split",
           -- vstest_path = "/usr/share/dotnet/sdk/8.0.408/vstest.console.dll",
-          enable_buffer_test_execution = true,           --Experimental, run tests directly from buffer
+          enable_buffer_test_execution = true, --Experimental, run tests directly from buffer
           noBuild = true,
           noRestore = true,
           icons = {

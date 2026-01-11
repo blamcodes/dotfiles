@@ -1,3 +1,8 @@
+-- For Rosyln
+vim.env.DOTNET_GCHeapHardLimit = 4294967296
+vim.env.DOTNET_GCHeapHardLimitPercent = 50
+vim.opt.showmode = false
+
 -- Neovim Base
 vim.opt.termguicolors = true
 vim.o.conceallevel = 1
@@ -31,11 +36,11 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.wildignore:append { '*/node_modules/*', '*/vendor/*' }
 
-vim.keymap.set('n', '<leader>q', ":q<CR>", { desc = "Quit"})
-vim.keymap.set('n', '<leader>w', ":w<CR>", { desc = "Write Changes"})
-vim.keymap.set('n', '<leader>bd', ":bdelete<CR>", { desc = "Delete Buffer"})
+vim.keymap.set('n', '<leader>q', ":q<CR>", { desc = "Quit" })
+vim.keymap.set('n', '<leader>w', ":w<CR>", { desc = "Write Changes" })
+vim.keymap.set('n', '<leader>bd', ":bdelete<CR>", { desc = "Delete Buffer" })
 -- Delete all buffers (%bd) and open last buffer for editing (e#)
-vim.keymap.set('n', '<leader>bA', ":%bd|e#<CR>", { desc = "Delete All Buffers and Open Last Buffer For Editing"})
+vim.keymap.set('n', '<leader>bA', ":%bd|e#<CR>", { desc = "Delete All Buffers and Open Last Buffer For Editing" })
 
 -- Terminal mode keybinds
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = "Exit terminal mode" })
@@ -63,8 +68,10 @@ local severity_map = {
 
 vim.diagnostic.config({
   virtual_text = false,
-  severity_sort = true
+  severity_sort = true,
+  update_in_insert = false,
 })
+
 
 -- The following command requires plug-ins "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", and optionally "kyazdani42/nvim-web-devicons" for icon support
 
@@ -84,7 +91,17 @@ end
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -- Global Keybinds
-vim.keymap.set({'n', 'v'}, '<Leader>dh', function() vim.diagnostic.open_float(nil, {focus=false, width=80, source="if_many", scope="line", border="single"}) end, { silent = true })
+vim.keymap.set({ 'n', 'v' }, '<Leader>dh',
+  function()
+    vim.diagnostic.open_float(nil, {
+      focus = false,
+      width = 80,
+      source = "if_many",
+      scope = "line",
+      border =
+      "single"
+    })
+  end, { silent = true })
 -- vim.api.nvim_set_keymap('n', '<leader>dd', '<cmd>FzfLua diagnostics_workspace<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { noremap = true, silent = true })

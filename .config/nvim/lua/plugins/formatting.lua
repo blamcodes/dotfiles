@@ -1,27 +1,25 @@
 return {
   "stevearc/conform.nvim",
+  enabled = true,
   event = { "BufReadPre", "BufNewFile" },
   opts = {},
   config = function()
     local conform = require("conform")
 
-    formatters = {
-      csharpier = {
-        -- Change where to find the command
-        command = "local/path/yamlfix",
-        -- Adds environment args to the yamlfix formatter
-        env = {
-          YAMLFIX_SEQUENCE_STYLE = "block_style",
+
+    conform.setup({
+      formatters = {
+        eslint = {
+          on_init = function(client)
+            client.config.settings.workingDirectory = { directory = client.config.root_dir }
+          end,
         },
       },
-      -- eslint = {
-      --   on_init = function(client)
-      --     client.config.settings.workingDirectory = { directory = client.config.root_dir }
-      --   end,
-      -- },
       formatters_by_ft = {
-        javascript = { "vtsls", "prettierd", "prettier", stop_after_first = true },
-        -- lua = { "stylelua" },
+        javascript = { "prettierd", "prettier", stop_after_first = true },
+        typescript = { "prettierd", "prettier", stop_after_first = true },
+        vue = { "prettierd", "prettier", stop_after_first = true },
+        lua = { "stylelua" },
         -- dockerfile = { "stylelua" },
         cs = { "csharpier" },
         -- sql = { "pgformatter" }
@@ -41,12 +39,13 @@ return {
           return
         end
         return {
-          lsp_fallback = true,
-          async = false,
+          lsp_fallback = "fallback",
           timeout_ms = 500,
         }
       end
-    }
+
+    })
+
 
 
     vim.keymap.set({ "n", "v" }, "<leader>mp", function()

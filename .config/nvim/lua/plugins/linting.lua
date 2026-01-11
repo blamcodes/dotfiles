@@ -1,95 +1,181 @@
 return {
   "mfussenegger/nvim-lint",
-  event = {
-    "BufReadPre",
-    "BufNewFile",
-  },
   opts = {
-    -- other config
-    linters = {
-      -- eslint_d = {
-      --   args = {
-      --     '--no-warn-ignored', -- <-- this is the key argument
-      --     '--format',
-      --     'json',
-      --     '--stdin',
-      --     '--stdin-filename',
-      --     function()
-      --       return vim.api.nvim_buf_get_name(0)
-      --     end,
-      --   },
-      -- },
-    },
-  },
-  config = function()
-    local lint = require("lint")
-
-    -- Old Helm Stuff
-    -- local function find_charts_dir(start_dir)
-    --   local current_dir = start_dir or vim.fn.getcwd()
-    --
-    --   while current_dir ~= '/' do
-    --     local charts_dir = current_dir .. '/Chart.yaml'
-    --
-    --     if vim.loop.fs_stat(charts_dir) then
-    --       print(vim.fs.dirname(charts_dir))
-    --       return vim.fs.dirname(charts_dir)
-    --     end
-    --
-    --     current_dir = vim.fs.dirname(current_dir) -- Move up a directory
-    --   end
-    --
-    --   return nil
-    -- end
-    --
-
-
-    local defaults = {
-      ["source"] = "helm"
-    }
-
-    local opts = {}
-
-    -- Helm Stuff
-    -- lint.linters.helm_lint = {
-    --   cmd = 'helm',
-    --   args = { 'lint', function()
-    --     find_charts_dir(vim.fs.dirname(vim.api.nvim_buf_get_name(0)))
-    --   end, '--quiet' },
-    --   stdin = true,
-    --   stream = 'stdout',
-    --   ignore_exitcode = true,
-    --   parser = require('lint.parser').from_pattern(
-    --     pattern,
-    --     { 'severity', 'file', 'message' },
-    --     severity_map,
-    --     defaults,
-    --     opts
-    --   )
-    -- }
-
-    lint.linters_by_ft = {
-      -- javascript = { "eslint_d" },
-      -- typescript = { "eslint_d" },
-      -- vue = { "eslint_d" },
-      -- javascriptreact = { "eslint_d" },
-      -- typescriptreact = { "eslint_d" },
+    -- Event to trigger linters
+    events = { "BufWritePost", "BufReadPost", "InsertLeave" },
+    linters_by_ft = {
+      fish = { "fish" },
+      -- Use the "*" filetype to run linters on all filetypes.
+      -- ['*'] = { 'global linter' },
+      -- Use the "_" filetype to run linters on filetypes that don't have other linters configured.
+      -- ['_'] = { 'fallback linter' },
+      -- ["*"] = { "typos" },
+      javascript = { "eslint_d" },
+      typescript = { "eslint_d" },
+      vue = { "eslint_d" },
+      javascriptreact = { "eslint_d" },
+      typescriptreact = { "eslint_d" },
       Dockerfile = { "hadolint", "snyk_iac", "trivy" },
       -- svelte = { "eslint_d" },
       -- python = { "pylint" },
-    }
+    },
+    -- LazyVim extension to easily override linter options
+    -- or add custom linters.
+    ---@type table<string,table>
+    linters = {
+      eslint_d = {
+        args = {
+            "--no-warn-ignored", -- <-- this is the key argument
+            "--format",
+            "json",
+            "--stdin",
+            "--stdin-filename",
+            function()
+              return vim.api.nvim_buf_get_name(0)
+            end,
+        }
+      }
+      -- -- Example of using selene only when a selene.toml file is present
+      -- selene = {
+      --   -- `condition` is another LazyVim extension that allows you to
+      --   -- dynamically enable/disable linters based on the context.
+      --   condition = function(ctx)
+      --     return vim.fs.find({ "selene.toml" }, { path = ctx.filename, upward = true })[1]
+      --   end,
+      -- },
+    },
+  },
+ config = function(_, opts)
+    local M = {}
 
-    local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
+    local lint = require("lint")
+    for name, linter in pairs(opts.linters) do
+      if type(linter) == "table" and type(lint.linters[name]) == "table" then
+        lint.linters[name] = vim.tbl_deep_extend("force", lint.linters[name], linter)
+        if type(linter.prepend_args) == "table" then
+          lint.linters[name].args = lint.linters[name].args or {}
+          vim.list_extend(lint.linters[name].args, linter.prepend_args)
+        end
+      else
+        lint.linters[name] = linter
+      end
+    end
+    lint.linters_by_ft = opts.linters_by_ft
 
-    vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-      group = lint_augroup,
-      callback = function()
-        lint.try_lint()
-      end,
+    function M.debounce(ms, fn)
+      local timer = vim.uv.new_timer()
+      return function(...)
+        local argv = { ... }
+        timer:start(ms, 0, function()
+          timer:stop()
+          vim.schedule_wrap(fn)(unpack(argv))
+        end)
+      end
+    end
+
+    function M.lint()
+      -- Use nvim-lint's logic first:
+      -- * checks if linters exist for the full filetype first
+      -- * otherwise will split filetype by "." and add all those linters
+      -- * this differs from conform.nvim which only uses the first filetype that has a formatter
+      local names = lint._resolve_linter_by_ft(vim.bo.filetype)
+
+      -- Create a copy of the names table to avoid modifying the original.
+      names = vim.list_extend({}, names)
+
+      -- print(vim.inspect(names))
+
+      -- Add fallback linters.
+      if #names == 0 then
+        vim.list_extend(names, lint.linters_by_ft["_"] or {})
+      end
+
+      -- Add global linters.
+      vim.list_extend(names, lint.linters_by_ft["*"] or {})
+
+      -- Filter out linters that don't exist or don't match the condition.
+      local ctx = { filename = vim.api.nvim_buf_get_name(0) }
+      ctx.dirname = vim.fn.fnamemodify(ctx.filename, ":h")
+      names = vim.tbl_filter(function(name)
+        local linter = lint.linters[name]
+        -- print(vim.inspect(linter))
+        if not linter then
+          LazyVim.warn("Linter not found: " .. name, { title = "nvim-lint" })
+        end
+        return linter and not (type(linter) == "table" and linter.condition and not linter.condition(ctx))
+      end, names)
+
+      -- print("NAMES")
+      -- print(vim.inspect(names))
+
+      -- Run linters.
+      -- print(vim.inspect(#names))
+      if #names > 0 then
+
+        print(vim.inspect(names))
+        lint.try_lint(names)
+      end
+    end
+
+    vim.api.nvim_create_autocmd(opts.events, {
+      group = vim.api.nvim_create_augroup("nvim-lint", { clear = true }),
+      callback = M.debounce(100, M.lint),
     })
-
-    vim.keymap.set("n", "<leader>l", function()
-      lint.try_lint()
-    end, { desc = "Trigger linting for current file" })
   end,
 }
+--   config = function()
+--     vim.env.PATH = '/usr/bin/eslint_d:' .. vim.env.PATH
+--     -- vim.env.ESLINT_D_PPID = vim.fn.getpid()
+--
+--     local lint = require("lint")
+--     lint.linters_by_ft = {
+--       javascript = { "eslint_d" },
+--       typescript = { "eslint_d" },
+--       vue = { "eslint_d" },
+--       javascriptreact = { "eslint_d" },
+--       typescriptreact = { "eslint_d" },
+--       Dockerfile = { "hadolint", "snyk_iac", "trivy" },
+--       -- svelte = { "eslint_d" },
+--       -- python = { "pylint" },
+--     }
+--
+--
+--     -- local eslint = lint.linters.eslint_d
+--     -- eslint.cmd = 'eslint_d'
+--     --
+--     -- eslint.args = {
+--     --   "--no-warn-ignored", -- <-- this is the key argument
+--     --   "--format",
+--     --   "json",
+--     --   "--stdin",
+--     --   "--stdin-filename",
+--     --   function()
+--     --     return vim.api.nvim_buf_get_name(0)
+--     --   end,
+--     -- }
+--
+--     -- local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
+--     --
+--     -- -- Lint only on save to reduce churn
+--     -- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+--     --   group = lint_augroup,
+--     --   callback = function()
+--     --     lint.try_lint()
+--     --   end,
+--     -- })
+--
+--
+--     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+--       callback = function()
+--
+--         -- try_lint without arguments runs the linters defined in `linters_by_ft`
+--         -- for the current filetype
+--         require("lint").try_lint()
+--       end,
+--     })
+--
+--     vim.keymap.set("n", "<leader>l", function()
+--       lint.try_lint()
+--     end, { desc = "Trigger linting for current file" })
+--   end,
+-- }

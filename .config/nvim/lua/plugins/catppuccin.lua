@@ -9,7 +9,7 @@ return {
       float = {
         transparent = true,
       },
-      flavour = "macchiato",
+      flavour = "auto",
       transparent_background = true,
       styles = {
         comments = { "italic" },
@@ -20,43 +20,44 @@ return {
       }
     })
 
-    local colors = require("catppuccin.palettes").get_palette()
-    local TelescopeColor = {
-      TelescopeMatching = { fg = colors.rosewater },
-      TelescopeSelection = { fg = colors.text, bg = colors.surface0, bold = true },
+    require('lualine').setup {
+        options = {
+            theme = "catppuccin"
+        },
+        global_status = true,
+        component_separators = { left = '', right = ''},
+        section_separators = { left = '', right = ''},
+        sections = {
+          lualine_c = {},
 
-      TelescopePromptPrefix = { bg = "NONE" },
-      TelescopePromptNormal = { bg = "NONE" },
-      TelescopeResultsNormal = { bg = "NONE" },
-      TelescopePreviewNormal = { bg = "NONE" },
-
-      TelescopePromptBorder = { bg = "NONE", fg = colors.mantle },
-      TelescopeResultsBorder = { bg = "NONE", fg = colors.mantle },
-      TelescopePreviewBorder = { bg = "NONE", fg = colors.mantle },
-
-      TelescopePromptTitle = { bg = colors.mauve, fg = colors.mantle },
-      TelescopeResultsTitle = { bg = colors.green, fg = colors.mantle },
-      TelescopePreviewTitle = { bg = colors.pink, fg = colors.mantle },
+          lualine_x = { },
+          lualine_y =  { 'location', 'filetype' },
+          lualine_z = { function() return vim.fn.getcwd() end }
+        }
     }
 
-    for hl, col in pairs(TelescopeColor) do
-      vim.api.nvim_set_hl(0, hl, col)
-    end
+    require('lualine').hide({
+      place = { 'dashboard', 'snacks_dashboard`'}, -- The segment this change applies to.
+      unhide = false,  -- whether to re-enable lualine again/
+    })
+    -- local colors = require("catppuccin.palettes").get_palette()
 
     vim.cmd.colorscheme("catppuccin")
+
     vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = "#939ab7", bold = false })
     -- vim.api.nvim_set_hl(0, 'CursorLine', { bg = "#989ab7", fg = "NONE", bold = false })
     -- vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = "#939ab7", bold = true })
     vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = "#939ab7", bold = false })
     vim.api.nvim_set_hl(0, 'Folded', { fg = "#5b6078", bold = false })
-    vim.api.nvim_set_hl(0, 'CursorLine', { bg="#212121", ctermbg = "NONE"})
-    vim.api.nvim_create_augroup("CursorLineTransparency", { clear = true })
-    vim.api.nvim_create_autocmd("ColorScheme", {
-      group = "CursorLineTransparency",
-      pattern = "*",
-      callback = function()
-        vim.api.nvim_set_hl(0, 'CursorLine', { bg = "#212121",  ctermbg = "NONE" })
-      end,
-    })
+    -- vim.api.nvim_set_hl(0, 'CursorLine', { bg = "#212121", ctermbg = "NONE" })
+    vim.api.nvim_set_hl(0, 'CursorLine', { bg = "none", blend = 20 })
+    -- vim.api.nvim_create_augroup("CursorLineTransparency", { clear = true })
+    -- vim.api.nvim_create_autocmd("ColorScheme", {
+    --   group = "CursorLineTransparency",
+    --   pattern = "*",
+    --   callback = function()
+    --     vim.api.nvim_set_hl(0, 'CursorLine', { bg = "#212121", ctermbg = "NONE" })
+    --   end,
+    -- })
   end,
 }

@@ -9,40 +9,40 @@ return {
       ensure_installed = {},
     },
   },
-  {
-    "mfussenegger/nvim-dap-python",
-    ft = { "python" },
-    dependencies = {
-      {
-        'mason-nvim-dap.nvim',
-        opts = function(_, opts)
-          opts.ensure_installed = opts.ensure_installed or {}
-          vim.list_extend(opts.ensure_installed, {
-            'python',
-          })
-        end,
-      },
-    },
-    opts = {
-      include_configs = false,
-      console = 'internalConsole',
-    },
-    config = function()
-      local dap = require("dap")
-      require("dap-python").setup("python")
-
-      -- DAP Configurations
-      table.insert(dap.configurations.python, {
-        name = "Python: Gunicorn",
-        type = "python",
-        request = "launch",
-        module = "gunicorn",
-        args = { "manawa", "--bind=0.0.0.0", "--port=3000", '--reload', '--workers=1' },
-        subProcess = true,
-        justMyCode = true,
-      })
-    end
-  },
+  -- {
+  --   "mfussenegger/nvim-dap-python",
+  --   ft = { "python" },
+  --   dependencies = {
+  --     {
+  --       'mason-nvim-dap.nvim',
+  --       opts = function(_, opts)
+  --         opts.ensure_installed = opts.ensure_installed or {}
+  --         vim.list_extend(opts.ensure_installed, {
+  --           'python',
+  --         })
+  --       end,
+  --     },
+  --   },
+  --   opts = {
+  --     include_configs = false,
+  --     console = 'internalConsole',
+  --   },
+  --   config = function()
+  --     local dap = require("dap")
+  --     require("dap-python").setup("python")
+  --
+  --     -- DAP Configurations
+  --     table3.insert(dap.configurations.python, {
+  --       name = "Python: Gunicorn",
+  --       type = "python",
+  --       request = "launch",
+  --       module = "gunicorn",
+  --       args = { "manawa", "--bind=0.0.0.0", "--port=3000", '--reload', '--workers=1' },
+  --       subProcess = true,
+  --       justMyCode = true,
+  --     })
+  --   end
+  -- },
   -- {
   --   "leoluz/nvim-dap-go",
   --   ft = { "go" },

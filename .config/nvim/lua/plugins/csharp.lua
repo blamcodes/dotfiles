@@ -1,13 +1,13 @@
 return {
   {
-    'seblj/roslyn.nvim',
-    ft = { 'cs' },
+    'seblyng/roslyn.nvim',
+    enabled = true,
+    ft = { 'cs', 'razor' },
     dependencies = {
       {
         -- By loading as a dependencies, we ensure that we are available to set
         -- the handlers for roslyn
         'tris203/rzls.nvim',
-        ft = 'razor',
         config = true,
       },
     },
@@ -16,11 +16,6 @@ return {
 
       local rzls_path = vim.fn.expand("$MASON/packages/rzls/libexec")
       local cmd = {
-        "systemd-run",
-        "--user",
-        "-p",
-        "MemoryMax=2G",
-        "-P",
         "roslyn",
         "--stdio",
         "--logLevel=Information",
@@ -52,6 +47,7 @@ return {
             dotnet_suppress_inlay_hints_for_parameters_that_differ_only_by_suffix = true,
             dotnet_suppress_inlay_hints_for_parameters_that_match_argument_name = true,
             dotnet_suppress_inlay_hints_for_parameters_that_match_method_intent = true,
+
           },
           ['csharp|code_lens'] = {
             dotnet_enable_references_code_lens = true,
@@ -80,6 +76,11 @@ return {
         extension = {
           razor = 'razor',
           cshtml = 'razor',
+        },
+      }
+      vim.filetype.add {
+        extension = {
+          vue = 'vue',
         },
       }
     end,

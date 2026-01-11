@@ -2,6 +2,12 @@ local function augroup(name)
   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
 
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.fn.system("eslint_d start 2>/dev/null")
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "FileType" }, {
   callback = function()
     if require("nvim-treesitter.parsers").has_parser() then
@@ -116,4 +122,3 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end
   end,
 })
-

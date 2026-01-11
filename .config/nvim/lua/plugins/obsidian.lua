@@ -1,6 +1,5 @@
 local vault_paths = {
-  { name = "work", path = vim.fn.expand("~") .. "/Documents/ironsight-obsidian" },
-  { name = "personal", path = vim.fn.expand("~") .. "/Documents/obsidian" },
+  { name = "vaults", path = vim.fn.expand("~") .. "/obsidian-vaults" },
   -- Add more vaults here as needed
 }
 

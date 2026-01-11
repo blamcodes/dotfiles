@@ -21,7 +21,6 @@ local lspconfig = require('lspconfig')
 
 -- LSP Configuration
 lspconfig.yamlls.setup {
-  capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
   settings = {
     yaml = {
       schemas = {
@@ -37,28 +36,6 @@ lspconfig.yamlls.setup {
     },
   },
 }
-
--- Autocompletion
--- local cmp = require "cmp"
--- cmp.setup.buffer {
---   sources = {
---     { name = "vsnip" },
---     { name = "nvim_lsp" },
---     { name = "path" },
---     {
---       name = "buffer",
---       option = {
---         get_bufnrs = function()
---           local bufs = {}
---           for _, win in ipairs(vim.api.nvim_list_wins()) do
---             bufs[vim.api.nvim_win_get_buf(win)] = true
---           end
---           return vim.tbl_keys(bufs)
---         end,
---       },
---     },
---   },
--- }
 
 function _G.NavigateFold(direction)
   local cmd = "normal! " .. direction

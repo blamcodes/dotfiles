@@ -2,13 +2,14 @@
 return { -- For `plugins.lua` users.
   {
     "OXY2DEV/markview.nvim",
+    enabled = true,
     lazy = false,
-    ft = { "markdown", "markdown_inline" },
+    -- ft = { "markdown", "markdown_inline", "codecompanion" },
     -- For `nvim-treesitter` users.
     priority = 49,
     opts = {
       preview = {
-        filetypes = { "markdown", "codecompanion", "markdown_inline", "mcphub" },
+        filetypes = { "markdown", "codecompanion", "markdown_inline" },
         ignore_buftypes = {},
       },
       latex = {
@@ -80,7 +81,11 @@ return { -- For `plugins.lua` users.
       -- dependencies = {
       --     "saghen/blink.cmp"
       -- },
-    }
+    },
+    config = function(_, opts)
+      require("markview").setup(opts)
+    end,
+
   },
   -- {
   --   "3rd/diagram.nvim",
