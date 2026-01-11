@@ -197,7 +197,6 @@
   // Group Hardware
   "group/hardware": {
     "orientation": "inherit",
-    "modules": [
       "custom/cpu-icon",
       "cpu",
       "custom/memory-icon",
